@@ -5,18 +5,22 @@ import MenuItem from 'react-toolbox/lib/menu/MenuItem';
 import MenuDivider from 'react-toolbox/lib/menu/MenuDivider';
 import {connect} from 'react-redux';
 
-//lallaa
-// TODO: solve warning for decorators
-@connect((store) => {
-  return {
-    logged:store.logged
-  }
-})
+
+function mapStateToProps(state) {
+  return { login: state.login };
+}
+/*
+TODO for now
+
+function mapDispatchToProps(dispatch) {
+  return { actions:  };
+}*/
+
+
 class Header extends React.Component {
   constructor() {
     super();
     this.state = {};
-    console.log("logged",this.props.logged);
   }
 
   render() {
