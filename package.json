@@ -10,8 +10,7 @@
     "react-redux": "latest",
     "redux-logger": "latest",
     "redux": "latest",
-    "react-toolbox/lib/menu/MenuDivider": "latest",
-    "react-toolbox/lib/menu/MenuItem": "latest"
+    "react-toolbox": "latest"
   },
   "devDependencies": {
     "react-scripts": "1.0.12"
