@@ -26,7 +26,7 @@ class Header extends React.Component {
   render() {
     return (
       <AppBar title='H.A.T'>
-        <IconMenu icon='more_vert' position='topLeft' >
+        <IconMenu icon='more_vert' position='topRight' >
           <MenuItem type='help' value='help' icon='help' caption='Help'/>
           <MenuDivider/>
         </IconMenu>
