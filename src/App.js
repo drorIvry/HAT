@@ -3,7 +3,7 @@ import ThemeProvider from 'react-toolbox/lib/ThemeProvider';
 import './App.css';
 import theme from './toolbox/theme.js';
 import './toolbox/theme.css';
-import Header from './components/header/Header';
+import Header from './components/Header';
 
 
 class App extends Component {
@@ -15,5 +15,7 @@ class App extends Component {
     );
   }
 }
+
+
 
 export default App;
