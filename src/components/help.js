@@ -6,7 +6,7 @@ class Help extends React.Component {
   }
 
   render() {
-    return <p>help</p>;
+    return <p>{this.state.someKey}</p>;
   }
 
   componentDidMount() {
