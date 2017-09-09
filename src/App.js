@@ -6,6 +6,7 @@ import './toolbox/theme.css';
 import Header from './containers/Header';
 import Login from './components/login';
 import Help from './components/help';
+import Welcome from './components/welcome';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
 
                     <Router>
                         <div>
+                            <Route exect={true} path='/' component={Welcome}/>
                             <Route path="/login" component={Login}/>
                             <Route path="/help" component={Help}/>
                         </div>
