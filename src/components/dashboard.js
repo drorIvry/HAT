@@ -3,31 +3,31 @@ import {login} from '../actions/loginActions';
 import {connect} from 'react-redux';
 
 class DashBoard extends React.Component {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  render() {
-    return <p>{this.props.login.logged? 'logged' : 'not logged: ' + this.props.login.user}</p>;
-  }
+    render() {
+        return <p>{this.props.login.logged ? 'logged' : 'not logged: ' + this.props.login.user}</p>;
+    }
 
-  componentDidMount() {
-      if(!this.props.login.logged)
-        console.log("notLogged");
-  }
+    componentDidMount() {
+        if (!this.props.login.logged)
+            console.log("notLogged");
+    }
 }
 
 const mapStateToProps = (state) => {
     return {
         login: state.login,
-        logout:state.logout
+        logout: state.logout
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         doLogin: (userName, password) => {
-            dispatch(login(userName,password));
+            dispatch(login(userName, password));
         }
     };
 };
