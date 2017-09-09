@@ -2,13 +2,14 @@
  * Reducer for login
  */
 const initState = {
-    user:"please login"
+    user:"please login",
+    logged:false
 }
 
 const reducer = (state = initState, action) => {
     switch (action.type) {
         case "LOGIN":{
-            return {...state, logged:action.payload.user};
+            return {...state, user:action.payload.user};
         }
         case "LOGOUT":{
             return {...state, logged:false};

@@ -5,12 +5,14 @@
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "redux-connect-decorator": "^0.1.0",
-    "react-toolbox/lib/ThemeProvider": "latest",
     "react-redux": "latest",
-    "redux-logger": "latest",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-toolbox": "latest",
+    "react-toolbox/lib/ThemeProvider": "latest",
     "redux": "latest",
-    "react-toolbox": "latest"
+    "redux-connect-decorator": "^0.1.0",
+    "redux-logger": "latest"
   },
   "devDependencies": {
     "react-scripts": "1.0.12"

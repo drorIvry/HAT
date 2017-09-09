@@ -1,9 +1,8 @@
-export function login(user, password){
+export function login(user){
     return {
         type:"LOGIN",
         payload:{
-            user:user,
-            password:password
+            user:user
         }
     }
 }

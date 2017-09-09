@@ -12,13 +12,23 @@ class Header extends React.Component {
         this.state = {};
     }
 
+    // route to the login page.
+    goToLogin(){
+        window.location = '/login';
+    }
+
+    //route to the help page.
+    goToHelp(){
+        window.location = '/help';
+    }
+
     render() {
         return (
             <AppBar title='H.A.T'>
                 <IconMenu icon='more_vert' position='topRight'>
-                    <MenuItem type='help' value='help' icon='help' caption='Help'/>
+                    <MenuItem type='help' value='help' icon='help' caption='Help' onClick={this.goToHelp}/>
                     <MenuDivider/>
-                    <MenuItem type='login' value='login' icon='person' caption={this.props.login.user}/>
+                    <MenuItem type='login' value='login' icon='person' caption={this.props.login.user} onClick={this.goToLogin}/>
                 </IconMenu>
 
             </AppBar>
