@@ -15,7 +15,7 @@ class Header extends React.Component {
 
     // route to the login.css page.
     goToLogin(){
-        window.location = '/login.css';
+        window.location = '/login';
     }
 
     //route to the help page.
