@@ -6,15 +6,16 @@ import MenuDivider from 'react-toolbox/lib/menu/MenuDivider';
 import {login} from '../actions/loginActions';
 import {connect} from 'react-redux';
 
+
 class Header extends React.Component {
     constructor() {
         super();
         this.state = {};
     }
 
-    // route to the login page.
+    // route to the login.css page.
     goToLogin(){
-        window.location = '/login';
+        window.location = '/login.css';
     }
 
     //route to the help page.

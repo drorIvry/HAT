@@ -16,14 +16,12 @@ class App extends Component {
             <ThemeProvider theme={theme}>
                 <div>
                     <Header/>
-
                     <Router>
                         <div>
                             <Route path='/welcome' component={Welcome}/>
                             <Route path="/login" component={Login}/>
                             <Route path="/help" component={Help}/>
                             <Route path="/dashboard" component={DashBoard}/>
-
                         </div>
                     </Router>
 

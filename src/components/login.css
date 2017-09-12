@@ -1,0 +1,35 @@
+form {
+    border-style: solid;
+    border-color: #9e9e9e;
+    border-width: thin;
+    border-radius: 25px;
+    display: inline-block;
+    width: 500px;
+    background-color: white;
+}
+
+.loginForm {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h4 {
+    margin-bottom: 5px;
+}
+
+h2 {
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    padding-bottom: 15px;
+
+}
+
+button {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #3a76b5;
+    border-style: none;
+    color: white;
+    width: 100px;
+}

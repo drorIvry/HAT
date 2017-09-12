@@ -13,7 +13,7 @@ class DashBoard extends React.Component {
 
     componentDidMount() {
         if (!this.props.login.logged)
-            window.location = '/login';
+            window.location = '/login.css';
     }
 }
 
