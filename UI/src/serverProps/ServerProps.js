@@ -1,4 +1,4 @@
 export default {
     server:"http://localhost:4000",
-    loginAPI:"/login"
+    loginAPI:"/users"
 }
