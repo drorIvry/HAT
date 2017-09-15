@@ -27,8 +27,9 @@ class Login extends React.Component {
 
     loginPressed() {
         serverLogin(this.state.userName, this.state.password).then(() =>{
-            alert('yay');
+            window.location='/dashboard'
         }).catch((error) => {
+            console.error(error);
             this.setState({...this.state, error:<span>User Name or password are incorrect!</span>})
         })
     }
