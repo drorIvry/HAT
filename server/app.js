@@ -8,6 +8,9 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+var cors = require('cors');
+
+
 var app = express();
 
 // view engine setup
@@ -31,6 +34,8 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+app.use(cors({origin: 'http://localhost:3000'}));
 
 // error handler
 app.use(function(err, req, res, next) {
