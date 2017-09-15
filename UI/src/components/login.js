@@ -3,6 +3,9 @@ import './login.css';
 import {serverLogin} from "../serverAPI/serverAPI";
 import Button from 'react-toolbox/lib/button/Button';
 import Input from 'react-toolbox/lib/input/Input';
+import {connect} from 'react-redux';
+import {login} from '../actions/loginActions';
+
 
 
 class Login extends React.Component {
@@ -27,6 +30,9 @@ class Login extends React.Component {
 
     loginPressed() {
         serverLogin(this.state.userName, this.state.password).then(() =>{
+
+            this.props.doLogin(this.state.userName);
+
             window.location='/dashboard'
         }).catch((error) => {
             console.error(error);
@@ -43,4 +49,19 @@ class Login extends React.Component {
     };
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+    return {
+        login: state.login,
+        logout:state.logout
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        doLogin: (userName) => {
+            dispatch(login(userName));
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

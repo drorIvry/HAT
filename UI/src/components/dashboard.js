@@ -12,9 +12,11 @@ class DashBoard extends React.Component {
     }
 
     componentDidMount() {
+        console.log(this.props);
+        /*
         if (!this.props.login.logged)
             window.location = '/login';
-    }
+   */ }
 }
 
 const mapStateToProps = (state) => {
