@@ -8,7 +8,8 @@ import Login from './components/login';
 import Help from './components/help';
 import Welcome from './components/welcome';
 import DashBoard from './components/dashboard';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import history from './router/history';
+import {Router, Route, Redirect} from 'react-router-dom'
 
 class App extends Component {
     render() {
@@ -16,12 +17,13 @@ class App extends Component {
             <ThemeProvider theme={theme}>
                 <div>
                     <Header/>
-                    <Router>
+                    <Router history={history}>
                         <div>
                             <Route path='/welcome' component={Welcome}/>
                             <Route path="/login" component={Login}/>
                             <Route path="/help" component={Help}/>
                             <Route path="/dashboard" component={DashBoard}/>
+                            <Redirect />
                         </div>
                     </Router>
 
