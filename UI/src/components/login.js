@@ -5,7 +5,7 @@ import Button from 'react-toolbox/lib/button/Button';
 import Input from 'react-toolbox/lib/input/Input';
 import {connect} from 'react-redux';
 import {login} from '../actions/loginActions';
-import history from '../router/history';
+import history from '../history';
 
 class Login extends React.Component {
     constructor() {
