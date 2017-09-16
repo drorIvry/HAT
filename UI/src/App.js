@@ -8,6 +8,7 @@ import Login from './components/login';
 import Help from './components/help';
 import Welcome from './components/welcome';
 import DashBoard from './components/dashboard';
+import Logout from './components/logout';
 import history from './history';
 import {Router, Route} from 'react-router-dom'
 
@@ -23,6 +24,7 @@ class App extends Component {
                             <Route path="/login" component={Login}/>
                             <Route path="/help" component={Help}/>
                             <Route path="/dashboard" component={DashBoard}/>
+                            <Route path='/logout' component={Logout}/>
                         </div>
                     </Router>
 
