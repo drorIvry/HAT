@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Button from 'react-toolbox/lib/button/Button';
-import {loggout} from '../actions/loginActions';
+import {logout} from '../actions/loginActions';
 import history from '../history';
 import './logout.css';
 
@@ -34,7 +34,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         doLogout: () => {
-            dispatch(loggout());
+            dispatch(logout());
         }
     };
 };

@@ -7,7 +7,7 @@ export function login(user, password){
     }
 }
 
-export function loggout(){
+export function logout(){
     return {
         type:"LOGOUT",
         payload:{
