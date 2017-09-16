@@ -5,7 +5,7 @@ import MenuItem from 'react-toolbox/lib/menu/MenuItem';
 import MenuDivider from 'react-toolbox/lib/menu/MenuDivider';
 import {login} from '../actions/loginActions';
 import {connect} from 'react-redux';
-
+import history from '../history';
 
 class Header extends React.Component {
     constructor() {
@@ -13,23 +13,17 @@ class Header extends React.Component {
         this.state = {};
     }
 
-    // route to the login.css page.
-    goToLogin(){
-        window.location = '/login';
-    }
-
-    //route to the help page.
-    goToHelp(){
-        window.location = '/help';
+    redirect(dest){
+        history.push(dest);
     }
 
     render() {
         return (
             <AppBar title='H.A.T'>
                 <IconMenu icon='more_vert' position='topRight'>
-                    <MenuItem type='help' value='help' icon='help' caption='Help' onClick={this.goToHelp}/>
+                    <MenuItem type='help' value='help' icon='help' caption='Help' onClick={this.redirect.bind(this,'/help')}/>
                     <MenuDivider/>
-                    <MenuItem type='login' value='login' icon='person' caption={this.props.login.user} onClick={this.goToLogin}/>
+                    <MenuItem type='login' value='login' icon='person' caption={this.props.login.user} onClick={this.redirect.bind(this,'/login')}/>
                 </IconMenu>
 
             </AppBar>
