@@ -27,7 +27,6 @@ class App extends Component {
                             <Route path='/logout' component={Logout}/>
                         </div>
                     </Router>
-
                 </div>
             </ThemeProvider>
         );
