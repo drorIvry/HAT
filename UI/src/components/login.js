@@ -18,6 +18,13 @@ class Login extends React.Component {
         };
     }
 
+    componentDidMount() {
+        console.log(this.props);
+
+        if (this.props.login.logged)
+            history.push('/logout');
+    }
+
     render() {
         return (
             <div className='loginForm'>
