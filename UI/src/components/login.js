@@ -12,9 +12,8 @@ class Login extends React.Component {
         super();
         this.state = {
             error: false,
-            userName: 'User Name:',
-            password: 'Password:',
-            passwordLabel: 'Password:'
+            username: '',
+            password: ''
         };
     }
 
@@ -29,9 +28,9 @@ class Login extends React.Component {
         return (
             <div className='loginForm'>
                 <div className='loginContainer'>
-                    <Input type='text' label={this.state.userName} onChange={this.handleChange.bind(this, 'userName')}
+                    <Input type='text' label={'User Name:'} value={this.state.username} onChange={this.handleChange.bind(this, 'username')}
                            error={this.props.login.error}/>
-                    <Input type='password' label={this.state.passwordLabel}
+                    <Input type='password' label={'Password:'} value={this.state.password}
                            onChange={this.handleChange.bind(this, 'password')} error={this.props.login.error}/>
                     <Button label='Login' icon={'person'} onClick={this.loginPressed.bind(this)}/>
                 </div>
@@ -39,7 +38,7 @@ class Login extends React.Component {
     }
 
     loginPressed() {
-        this.props.doLogin(this.state.userName, this.state.password);
+        this.props.doLogin(this.state.username, this.state.password);
 
         setTimeout(() =>{
             if(this.props.login.logged)
@@ -48,10 +47,6 @@ class Login extends React.Component {
     }
 
     handleChange = (name, value) => {
-
-        if (name === 'password')
-            this.setState({...this.state, passwordLabel: ''})
-
         this.setState({...this.state, [name]: value});
     };
 }
