@@ -2,6 +2,7 @@ import React from 'react';
 import {login} from '../actions/loginActions';
 import {connect} from 'react-redux';
 import history from '../history';
+import './CSS/Dashboard.css';
 
 class DashBoard extends React.Component {
     constructor() {
@@ -9,13 +10,34 @@ class DashBoard extends React.Component {
     }
 
     render() {
-        return <p>{this.props.login.logged ? 'logged' : 'not logged: ' + this.props.login.user}</p>;
+        return <div className={'dashboardWrapper'}>
+            <div className={'tripPropContainer'}>
+                <div className={'tripPropsForm'}>
+                    <p className={'prop'}>H.A.T date:</p>
+                    <p>TBD</p>
+
+                    <p className={'prop'}>H.A.T return Date:</p>
+                    <p>TBD</p>
+
+                    <p className={'prop'}>H.A.T daily Budget:</p>
+                    <p>TBD</p>
+
+                    <p className={'prop'}>H.A.T Cost per Huck:</p>
+                    <p>TBD</p>
+                </div>
+
+
+            </div>
+
+            <div className={'dashboardContainer'}>
+                <div className={'dashboardForm'}>
+                </div>
+            </div>
+        </div>;
     }
 
     componentDidMount() {
-        console.log(this.props);
-
-        if (!this.props.login.logged)
+        if (this.props.login.logged)
             history.push('/login');
     }
 }
@@ -28,11 +50,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        doLogin: (userName, password) => {
-            dispatch(login(userName, password));
-        }
-    };
+    return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashBoard);

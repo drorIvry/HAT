@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Button from 'react-toolbox/lib/button/Button';
 import {logout} from '../actions/loginActions';
 import history from '../history';
-import './logout.css';
+import './CSS/logout.css';
 
 class Logout extends Component {
     render() {
