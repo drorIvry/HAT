@@ -1,8 +1,7 @@
 import React from 'react';
-import {login} from '../actions/loginActions';
 import {connect} from 'react-redux';
 import history from '../history';
-import './CSS/Dashboard.css';
+import TripSummery from './TripSummery'
 
 class DashBoard extends React.Component {
     constructor() {
@@ -11,28 +10,7 @@ class DashBoard extends React.Component {
 
     render() {
         return <div className={'dashboardWrapper'}>
-            <div className={'tripPropContainer'}>
-                <div className={'tripPropsForm'}>
-                    <p className={'prop'}>H.A.T date:</p>
-                    <p>TBD</p>
-
-                    <p className={'prop'}>H.A.T return Date:</p>
-                    <p>TBD</p>
-
-                    <p className={'prop'}>H.A.T daily Budget:</p>
-                    <p>TBD</p>
-
-                    <p className={'prop'}>H.A.T Cost per Huck:</p>
-                    <p>TBD</p>
-                </div>
-
-
-            </div>
-
-            <div className={'dashboardContainer'}>
-                <div className={'dashboardForm'}>
-                </div>
-            </div>
+            <TripSummery/>
         </div>;
     }
 
