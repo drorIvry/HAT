@@ -26,7 +26,7 @@ class Header extends React.Component {
                     <IconMenu icon='more_vert' position='topRight' theme={{zIndex: 10}}>
                         <MenuItem type='home' value='home' icon='home' caption='home'
                                   onClick={this.redirect.bind(this, '/dashboard')}/>
-                        <MenuItem type='help' value='help' icon='help' caption='Help'
+                        <MenuItem type='help' value='help' icon='help' caption='About'
                                   onClick={this.redirect.bind(this, '/help')}/>
                         <MenuDivider/>
                         <MenuItem type='login' value='login' icon='person' caption={this.props.login.user}
@@ -61,7 +61,7 @@ class Header extends React.Component {
     };
 
     handleToggle = () => {
-        if (this.props.login.logged)
+        if (!this.props.login.logged)
             this.setState({drawerActive: !this.state.drawerActive});
         else
             this.setState({snackBarActive:true});

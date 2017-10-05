@@ -22,10 +22,6 @@ class Pledge extends Component {
         });
     }
 
-    componentWillMount(){
-        console.log('PROPSSSS',this.props);
-    }
-
     render() {
         return (
             <div className={'pledgeWrapper'}>
@@ -54,7 +50,7 @@ class Pledge extends Component {
                         <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption='Driver stays sober.'/>
                         <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption='ties will be solved randomly.'/>
                     </List>
-                    
+
                     <ListCheckbox caption={'I ' + this.props.login.user +' accept all the restrictions, obListItemgations, commitments and codes mentioned above.'} checked={this.state.pledged} onChange={this.togglePledge.bind(this)}/>
 
                     {this.state.pledged? <Button className='pledgeButton' label={'pledge'}/> : undefined}
@@ -69,6 +65,5 @@ const mapStateToProps = (state) => {
         login: state.login
     };
 };
-;
 
 export default connect(mapStateToProps)(Pledge);

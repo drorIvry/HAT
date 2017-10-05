@@ -22,6 +22,10 @@
 
 .pledgeButton{
     margin: 10px;
+    border-width: thin;
+    border-style: solid;
+    border-radius: 5px;
+    background-color: #8dace080;
 }
 
 .pledgeWrapper {
