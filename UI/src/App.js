@@ -10,7 +10,8 @@ import Welcome from './components/welcome';
 import DashBoard from './components/dashboard';
 import Logout from './components/logout';
 import history from './history';
-import {Router, Route} from 'react-router-dom'
+import {Router, Route} from 'react-router-dom';
+import Pledge from './components/Pledge';
 
 class App extends Component {
     render() {
@@ -25,6 +26,7 @@ class App extends Component {
                             <Route path="/help" component={Help}/>
                             <Route path="/dashboard" component={DashBoard}/>
                             <Route path='/logout' component={Logout}/>
+                            <Route path='/pledge' component={Pledge}/>
                         </div>
                     </Router>
                 </div>

@@ -15,8 +15,6 @@ class DrawerContent extends Component {
                 <MenuDivider/>
                 <MenuItem value='pledge' caption='Take the pledge'/>
                 <MenuItem value='pledge' caption='Suggest a motion'/>
-
-
             </div>
         );
     }
