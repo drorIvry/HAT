@@ -5,6 +5,7 @@ import MenuItem from 'react-toolbox/lib/menu/MenuItem';
 import MenuDivider from 'react-toolbox/lib/menu/MenuDivider';
 import {login} from '../actions/loginActions';
 import Drawer from 'react-toolbox/lib/drawer';
+import Snackbar from 'react-toolbox/lib/snackbar/Snackbar';
 import {connect} from 'react-redux';
 import history from '../history';
 import DrawerContent from '../components/DrawerContent';
@@ -13,7 +14,8 @@ class Header extends React.Component {
     constructor() {
         super();
         this.state = {
-            drawerActive: false
+            drawerActive: false,
+            snackBarActive: false
         };
     }
 
@@ -21,17 +23,26 @@ class Header extends React.Component {
         history.push(dest);
     }
 
+    handleSnackbarClick = () => {
+        this.setState({snackBarActive:false});
+    };
+
     handleToggle = () => {
-        this.setState({drawerActive: !this.state.drawerActive});
+        if (!this.props.login.logged)
+            this.setState({drawerActive: !this.state.drawerActive});
+        else
+            this.setState({snackBarActive:true});
     };
 
     render() {
         return (
             <div>
                 <AppBar title='H.A.T' leftIcon={'menu'} onLeftIconClick={this.handleToggle}>
-                    <IconMenu icon='more_vert' position='topRight' theme={{zIndex:10}}>
+                    <IconMenu icon='more_vert' position='topRight' theme={{zIndex: 10}}>
                         <MenuItem type='help' value='help' icon='help' caption='Help'
                                   onClick={this.redirect.bind(this, '/help')}/>
+                        <MenuItem type='home' value='home' icon='home' caption='home'
+                                  onClick={this.redirect.bind(this, '/dashboard')}/>
                         <MenuDivider/>
                         <MenuItem type='login' value='login' icon='person' caption={this.props.login.user}
                                   onClick={this.redirect.bind(this, '/login')}/>
@@ -42,6 +53,16 @@ class Header extends React.Component {
                 <Drawer active={this.state.drawerActive} onOverlayClick={this.handleToggle}>
                     <DrawerContent/>
                 </Drawer>
+
+                <Snackbar
+                    action='Dismiss'
+                    active={this.state.snackBarActive}
+                    label='Please Login'
+                    timeout={2000}
+                    onClick={this.handleSnackbarClick}
+                    onTimeout={this.handleSnackbarTimeout}
+                    type='cancel'
+                />
             </div>
         );
     }
