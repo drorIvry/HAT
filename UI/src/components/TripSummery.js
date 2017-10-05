@@ -1,30 +1,16 @@
 import React, {Component} from 'react';
+import SummeryCard from './SummeryCard';
 import './CSS/TripSummery.css';
 
 
 class TripSummery extends Component {
     render() {
-        return <div className={'SummeryWrapper'}>
-
-                <div className={'tripPropsForm'}>
-                    <p className={'prop'}>H.A.T date:</p>
-                    <p className={'value'}>TBD</p>
-                </div>
-
-                <div className={'tripPropsForm'}>
-                    <p className={'prop'}>H.A.T return Date:</p>
-                    <p className={'value'}>TBD</p>
-                </div>
-
-                <div className={'tripPropsForm'}>
-                    <p className={'prop'}>H.A.T daily Budget:</p>
-                    <p className={'value'} >TBD</p>
-                </div>
-
-                <div className={'tripPropsForm'}>
-                    <p className={'prop'}>H.A.T Cost per Huck:</p>
-                    <p className={'value'}>TBD</p>
-                </div>
+        return <div className={'wrapper'}>
+            <SummeryCard title={'Budget'} subtitle={'daily budget'} value={'75$'}/>
+            <SummeryCard title={'Dates'} subtitle={'start and end dates'} value={'1/1 - 2/2'}/>
+            <SummeryCard title={'Total Budget'} subtitle={'total minimal budget'} value={'100,000$'}/>
+            <SummeryCard title={'Additional places'} subtitle={'places that aren\'t in the US' } value={'Canada'}/>
+            <SummeryCard title={'pledged Senators'} subtitle={'people that are committed to the trip 100%'} value={'kaki pipi poopoo'}/>
         </div>;
     }
 }

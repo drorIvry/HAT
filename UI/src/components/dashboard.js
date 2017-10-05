@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import history from '../history';
-import TripSummery from './TripSummery'
+import TripSummery from './TripSummery';
+import './CSS/dashboard.css';
 
 class DashBoard extends React.Component {
     constructor() {

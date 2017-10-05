@@ -1,39 +1,10 @@
 
-.tripPropsForm {
-    text-align: center;
-    background-color: white;
-    float: right;
-    margin: 20px;
-    position: relative;
-    width:100%;
-    padding: 5px;
-    left:40%;
-    box-shadow: 5px 5px 5px grey;
-    clear: both;
+.wrapper{
+    margin: 10px;
+    display: flex;
+    z-index: 0;
 }
 
-.SummeryWrapper{
-    display: inline-flex;
-}
-
-.tripPropContainer {
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-bottom: 15px;
-}
-
-p {
-  display: inline;
-  margin-right: 10px;
-}
-
-
-
-.prop {
-    font-size: large;
-
-}
-
-.value {
-    margin-right: 20px;
+.SummeryCard {
+    margin-left: 10px;
 }

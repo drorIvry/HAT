@@ -4,29 +4,45 @@ import IconMenu from 'react-toolbox/lib/menu/IconMenu';
 import MenuItem from 'react-toolbox/lib/menu/MenuItem';
 import MenuDivider from 'react-toolbox/lib/menu/MenuDivider';
 import {login} from '../actions/loginActions';
+import Drawer from 'react-toolbox/lib/drawer';
 import {connect} from 'react-redux';
 import history from '../history';
+import DrawerContent from '../components/DrawerContent';
 
 class Header extends React.Component {
     constructor() {
         super();
-        this.state = {};
+        this.state = {
+            drawerActive: false
+        };
     }
 
-    redirect(dest){
+    redirect(dest) {
         history.push(dest);
     }
 
+    handleToggle = () => {
+        this.setState({drawerActive: !this.state.drawerActive});
+    };
+
     render() {
         return (
-            <AppBar title='H.A.T'>
-                <IconMenu icon='more_vert' position='topRight'>
-                    <MenuItem type='help' value='help' icon='help' caption='Help' onClick={this.redirect.bind(this,'/help')}/>
-                    <MenuDivider/>
-                    <MenuItem type='login' value='login' icon='person' caption={this.props.login.user} onClick={this.redirect.bind(this,'/login')}/>
-                </IconMenu>
+            <div>
+                <AppBar title='H.A.T' leftIcon={'menu'} onLeftIconClick={this.handleToggle}>
+                    <IconMenu icon='more_vert' position='topRight' theme={{zIndex:10}}>
+                        <MenuItem type='help' value='help' icon='help' caption='Help'
+                                  onClick={this.redirect.bind(this, '/help')}/>
+                        <MenuDivider/>
+                        <MenuItem type='login' value='login' icon='person' caption={this.props.login.user}
+                                  onClick={this.redirect.bind(this, '/login')}/>
+                    </IconMenu>
 
-            </AppBar>
+                </AppBar>
+
+                <Drawer active={this.state.drawerActive} onOverlayClick={this.handleToggle}>
+                    <DrawerContent/>
+                </Drawer>
+            </div>
         );
     }
 }
@@ -34,7 +50,7 @@ class Header extends React.Component {
 const mapStateToProps = (state) => {
     return {
         login: state.login,
-        logout:state.logout
+        logout: state.logout
     };
 };
 
