@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import MenuItem from 'react-toolbox/lib/menu/MenuItem';
 import MenuDivider from 'react-toolbox/lib/menu/MenuDivider';
+import history from '../history';
 
 class DrawerContent extends Component {
     render() {
@@ -13,7 +14,7 @@ class DrawerContent extends Component {
                 <MenuItem value='hack' icon={<img src={'https://cdn0.iconfinder.com/data/icons/nature-food-and-kitchen/1000/file_light-43-512.png'} height={35} width={35} />} caption='Hack Bucket' />
                 <MenuItem value='metal' icon={<img src={'https://cdn4.iconfinder.com/data/icons/heavy-lines-20-music-icons/100/19_horns-512.png'} height={30} width={30} />} caption='Metal Bucket' />
                 <MenuDivider/>
-                <MenuItem value='pledge' caption='Take the pledge'/>
+                <MenuItem value='pledge' caption='Take the pledge' onClick={()=>{history.push('/pledge')}}/>
                 <MenuItem value='pledge' caption='Suggest a motion'/>
             </div>
         );
