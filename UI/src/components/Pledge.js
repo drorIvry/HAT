@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import List from 'react-toolbox/lib/list/List';
 import ListCheckbox from 'react-toolbox/lib/list/ListCheckbox';
+import Button from 'react-toolbox/lib/button/Button';
 
 import './CSS/pledge.css';
 
@@ -49,6 +49,8 @@ class Pledge extends Component {
                         <li>ties will be solved randomly.</li>
                     </ul>
                     <ListCheckbox caption={'I accept all the restrictions, obligations, commitments and codes mentioned above.'} checked={this.state.pledged} onChange={this.togglePledge.bind(this)}/>
+
+                    {this.state.pledged? <Button label={'pledge'}/> : undefined}
                 </div>
             </div>
         );
