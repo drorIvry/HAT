@@ -19,30 +19,15 @@ class Header extends React.Component {
         };
     }
 
-    redirect(dest) {
-        history.push(dest);
-    }
-
-    handleSnackbarClick = () => {
-        this.setState({snackBarActive:false});
-    };
-
-    handleToggle = () => {
-        if (!this.props.login.logged)
-            this.setState({drawerActive: !this.state.drawerActive});
-        else
-            this.setState({snackBarActive:true});
-    };
-
     render() {
         return (
             <div>
                 <AppBar title='H.A.T' leftIcon={'menu'} onLeftIconClick={this.handleToggle}>
                     <IconMenu icon='more_vert' position='topRight' theme={{zIndex: 10}}>
-                        <MenuItem type='help' value='help' icon='help' caption='Help'
-                                  onClick={this.redirect.bind(this, '/help')}/>
                         <MenuItem type='home' value='home' icon='home' caption='home'
                                   onClick={this.redirect.bind(this, '/dashboard')}/>
+                        <MenuItem type='help' value='help' icon='help' caption='Help'
+                                  onClick={this.redirect.bind(this, '/help')}/>
                         <MenuDivider/>
                         <MenuItem type='login' value='login' icon='person' caption={this.props.login.user}
                                   onClick={this.redirect.bind(this, '/login')}/>
@@ -66,6 +51,21 @@ class Header extends React.Component {
             </div>
         );
     }
+
+    redirect(dest) {
+        history.push(dest);
+    }
+
+    handleSnackbarClick = () => {
+        this.setState({snackBarActive:false});
+    };
+
+    handleToggle = () => {
+        if (!this.props.login.logged)
+            this.setState({drawerActive: !this.state.drawerActive});
+        else
+            this.setState({snackBarActive:true});
+    };
 }
 
 const mapStateToProps = (state) => {

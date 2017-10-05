@@ -14,13 +14,9 @@ class SummeryCard extends Component {
                         subtitle={this.props.subtitle}
                     />
 
-
                     <CardText>{this.props.value}</CardText>
-
-                    <CardTitle title="pledged senators">
-
-                    </CardTitle>
-
+                    <CardTitle title="pledged senators"/>
+                    <CardText>{this.props.pledged}</CardText>
                 </Card>
             </div>
         );
