@@ -6,7 +6,7 @@ import users from './routes/users';
 import routes from './routes';
 import mongoose from 'mongoose';
 import pledge from './routes/pledge';
-import {addToBucket} from './routes/addToBucket';
+import {addToBucket, pourBucket} from './routes/bucketActions';
 
 const app = express();
 app.disable('x-powered-by');
@@ -31,6 +31,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 app.use('/', routes);
 app.use('/users',users);
 app.use('/pledge',pledge);
+app.get('/bucket', pourBucket);
 app.post('/bucket', addToBucket);
 
 
