@@ -6,7 +6,7 @@ import users from './routes/users';
 import routes from './routes';
 import mongoose from 'mongoose';
 import pledge from './routes/pledge';
-import Senator from './dal/Senator';
+import {addToBucket} from './routes/addToBucket';
 
 const app = express();
 app.disable('x-powered-by');
@@ -31,6 +31,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 app.use('/', routes);
 app.use('/users',users);
 app.use('/pledge',pledge);
+app.post('/bucket', addToBucket);
 
 
 // Catch 404 and forward to error handler
