@@ -1,21 +1,21 @@
 import { Router } from 'express';
 const router = Router();
-import users from '../users/users'
+import Senator from '../dal/Senator';
 
 /* GET users listing. */
 router.get('/', function(req, res) {
 
-  console.log(req.query);
-
   const username = req.query['username'];
-  const password = users[username];
+  const password = req.query['password'];
 
-  if(password === req.query['password'])
-    res.end(req.query['username']);
-  else {
-    res.status(401);
-    res.end('unauthorized');
-  }
+  Senator.findOne({username:username,password:password}, (err, docs) => {
+    if ((err)||(docs===null))
+      return res.send(401, { error: err });
+
+    console.log(docs);
+
+    return res.send("logged");
+  })
 });
 
 export default router;

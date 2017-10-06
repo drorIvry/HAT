@@ -15,7 +15,7 @@
     "start": "node dist/index.js",
     "dev": "nodemon src/index.js --exec \"node -r dotenv/config -r babel-register\"",
     "clean": "rimraf dist",
-    "build": "npm run clean && mkdir -p dist && babel src -s -D -d dist",
+    "build": "npm run clean && mkdir dist && babel src -s -D -d dist",
     "test": "jest --watch",
     "lint": "esw -w src test"
   },
@@ -37,6 +37,9 @@
     "babel-preset-env": "^1.4.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
+    "mongod": "^2.0.0",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.12.0",
     "morgan": "^1.7.0",
     "pug": "^2.0.0-beta11",
     "rimraf": "^2.6.1"
@@ -56,7 +59,9 @@
   },
   "babel": {
     "presets": [
-      ["env", {
+      [
+        "env",
+        {
           "targets": {
             "node": "current"
           }
