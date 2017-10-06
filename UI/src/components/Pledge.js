@@ -4,6 +4,8 @@ import Button from 'react-toolbox/lib/button/Button';
 import ListItem from 'react-toolbox/lib/list/ListItem';
 import List from 'react-toolbox/lib/list/List';
 import {connect} from 'react-redux';
+import {pledge} from '../actions/pledgeAction';
+import history from '../history';
 
 import './CSS/pledge.css';
 
@@ -20,6 +22,15 @@ class Pledge extends Component {
         this.setState({
             pledged:!this.state.pledged
         });
+    }
+
+    pledgePressed(){
+        this.props.doPledge(this.props.login.user);
+
+        setTimeout(() =>{
+            if(this.props.pledge.pledged)
+                history.push('/dashboard');
+        },500);
     }
 
     render() {
@@ -53,7 +64,7 @@ class Pledge extends Component {
 
                     <ListCheckbox caption={'I ' + this.props.login.user +' accept all the restrictions, obListItemgations, commitments and codes mentioned above.'} checked={this.state.pledged} onChange={this.togglePledge.bind(this)}/>
 
-                    {this.state.pledged? <Button className='pledgeButton' label={'pledge'}/> : undefined}
+                    {this.state.pledged? <Button className='pledgeButton' label={'pledge'} onClick={this.pledgePressed.bind(this)}/> : undefined}
                 </div>
             </div>
         );
@@ -62,8 +73,17 @@ class Pledge extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        login: state.login
+        login: state.login,
+        pledge:state.pledge
     };
 };
 
-export default connect(mapStateToProps)(Pledge);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        doPledge: (userName) => {
+            dispatch(pledge(userName));
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Pledge);

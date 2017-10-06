@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 
     console.log(docs);
 
-    return res.send("logged");
+    return res.send(username);
   })
 });
 

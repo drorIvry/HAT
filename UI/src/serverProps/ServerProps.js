@@ -1,4 +1,5 @@
 export default {
-    server:"http://10.0.0.2:4000",
-    loginAPI:"/users"
+    server:"http://localhost:8080",
+    loginAPI:"/users",
+    pledgeAPI:'/pledge'
 }
