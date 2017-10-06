@@ -16,8 +16,8 @@ class DashBoard extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.login.logged)
-            history.push('/login');
+        /*if (!this.props.login.logged)
+            history.push('/login');*/
     }
 }
 

@@ -43,13 +43,13 @@ class Pledge extends Component {
                     </p>
                     <List>
                         <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption={'I '+ this.props.login.user+ ' am fully committed to go to the H.A.T no matter the circumstances until death do me part.'}/>
-                        <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption={'I '+ this.props.login.user+ ' am here by obListItemgated to gather all the needed funds to go to the H.A.T until the specified date.'}/>
+                        <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption={'I '+ this.props.login.user+ ' am here by obligated to gather all the needed funds to go to the H.A.T until the specified date.'}/>
                         <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption={'I '+ this.props.login.user+ ' am committed to acknowledge any motion that more than 50% of the pledged hacks are committed to, even against my preference.'}/>
-                        <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption={'I '+ this.props.login.user+ ' am obListItemgated to not separate from the group to a time exceeding the minimal separation time.'}/>
+                        <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption={'I '+ this.props.login.user+ ' am obligated to not separate from the group to a time exceeding the minimal separation time.'}/>
                         <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption={'I '+ this.props.login.user+ ' am swear to+ not take anything personally, and not to spite fights.'}/>
                         <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption={'I '+ this.props.login.user+ ' am committed to compromise whenever I can.'}/>
                         <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption={'I '+ this.props.login.user+ ' am committed to stay within the daily budget (if I dont have additional funds).'}/>
-                        <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption='Each and every hack that pledged, is obListItemgated in helping, advising, and managing all the needed arrangements in order to execute the H.A.T.'/>
+                        <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption='Each and every hack that pledged, is obligated in helping, advising, and managing all the needed arrangements in order to execute the H.A.T.'/>
                         <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption='When a hack have a chance to wet the waffle all other hacks are committed to do anything in their power to help them.'/>
                         <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption='BROS B4 HOES!'/>
                         <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption='Take care of fallen Hacks.'/>
@@ -62,7 +62,7 @@ class Pledge extends Component {
                         <ListItem leftIcon={<img src={'https://image.flaticon.com/icons/svg/61/61839.svg'} height={20} width={20}/>} caption='ties will be solved randomly.'/>
                     </List>
 
-                    <ListCheckbox caption={'I ' + this.props.login.user +' accept all the restrictions, obListItemgations, commitments and codes mentioned above.'} checked={this.state.pledged} onChange={this.togglePledge.bind(this)}/>
+                    <ListCheckbox caption={'I ' + this.props.login.user +' accept all the restrictions, obligations, commitments and codes mentioned above.'} checked={this.state.pledged} onChange={this.togglePledge.bind(this)}/>
 
                     {this.state.pledged? <Button className='pledgeButton' label={'pledge'} onClick={this.pledgePressed.bind(this)}/> : undefined}
                 </div>

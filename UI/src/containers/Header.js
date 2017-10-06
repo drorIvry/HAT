@@ -61,12 +61,12 @@ class Header extends React.Component {
     };
 
     handleToggle = () => {
-        if (this.props.login.logged)
+        //if (this.props.login.logged)
             this.setState({drawerActive: !this.state.drawerActive});
-        else
-            this.setState({snackBarActive:true});
+        //else
+        //    this.setState({snackBarActive:true});
     };
-}
+};
 
 const mapStateToProps = (state) => {
     return {

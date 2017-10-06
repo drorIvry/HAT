@@ -1,6 +1,4 @@
 import Activity from '../dal/Activity';
-import {Router} from 'express';
-const router = Router();
 
 /* GET bucket activities */
 export function pourBucket(req, res) {
@@ -12,16 +10,14 @@ export function pourBucket(req, res) {
   });
 };
 
-export {router};
-
-
+/* POST to add to the bucket */
 export function addToBucket(req, res) {
   var newActivity = new Activity(req.body);
 
-  newActivity.save((err, activity) => {
+  newActivity.save((err) => {
     if (err)
       return res.send(500, {error: err});
-    
+
     return res.send("successfully saved");
   })
 };
