@@ -14,7 +14,7 @@ export function serverLogin(user, password) {
         })
             .then(resolve)
             .catch(reject);
-    })
+    });
 }
 
 export function serverPledge(user) {
@@ -29,9 +29,31 @@ export function serverPledge(user) {
         })
             .then(resolve)
             .catch(reject);
-    })
+    });
 }
 
-// server pour and fill bucket
+export function pourBucket() {
+    return new Promise((resolve, reject) => {
+        axios.get(serverProps.server + serverProps.bucketAPI)
+            .then(resolve)
+            .catch(reject);
+    });
+}
+
+export function addToBucket(activity) {
+    return new Promise((resolve, reject) => {
+        axios.post(serverProps.server + serverProps.bucketAPI, activity)
+            .then(resolve)
+            .catch(reject);
+    });
+}
+
+export function filterBucket(filter) {
+    return new Promise((resolve, reject) => {
+        axios.post(serverProps.server + serverProps.filterBucketAPI, filter)
+            .then(resolve)
+            .catch(reject);
+    });
+}
 
 
