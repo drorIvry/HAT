@@ -32,4 +32,6 @@ export function serverPledge(user) {
     })
 }
 
+// server pour and fill bucket
+
 

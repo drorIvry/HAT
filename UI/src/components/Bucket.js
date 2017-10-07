@@ -5,9 +5,9 @@ import TableHead from 'react-toolbox/lib/table/TableHead';
 import TableCell from 'react-toolbox/lib/table/TableCell';
 import TableRow from 'react-toolbox/lib/table/TableRow';
 
-
 import './CSS/bucket.css';
 
+// get the activities from redux
 const temp = [
     {
         name: 'awdwad',
@@ -34,7 +34,8 @@ class Bucket extends Component {
         super();
         this.state={
             deleteMode:false,
-            selected:{}
+            selected:{},
+            openModal:false
         }
     }
 
@@ -59,7 +60,9 @@ class Bucket extends Component {
         return (
             <div className={'bucketContainer'}>
                 <div className={'bucketForm'}>
+                    <Button icon={'add'} onClick={()=>{this.setState({...this.state,openModal:!this.state.openModal})}}/>
                     <Button icon={'delete'} onClick={()=>{this.setState({...this.state,deleteMode:!this.state.deleteMode})}}/>
+
                     <Table multiSelectable={false} selectable={this.state.deleteMode} onRowSelect={this.select.bind(this)}>
                         <TableHead displaySelect={this.state.deleteMode}>
                             <TableCell>Name</TableCell>
@@ -90,5 +93,7 @@ class Bucket extends Component {
         );
     }
 }
+
+
 
 export default Bucket;

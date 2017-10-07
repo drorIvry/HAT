@@ -5,7 +5,6 @@ export function filter(filters){
     }
 }
 
-
 export function clearFilters(){
     return {
         type:"CLEAR_FILTERS",

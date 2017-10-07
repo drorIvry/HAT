@@ -3,7 +3,7 @@ import MenuItem from 'react-toolbox/lib/menu/MenuItem';
 import MenuDivider from 'react-toolbox/lib/menu/MenuDivider';
 import history from '../history';
 import {connect} from 'react-redux';
-import {filter, clearFilters} from "../actions/bucketNavigationActions";
+import {filter, clearFilters} from "../actions/bucketActions";
 
 
 class DrawerContent extends Component {
@@ -36,7 +36,7 @@ class DrawerContent extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        bucketNavigation: state.bucketNavigation,
+        bucket: state.bucket,
     };
 };
 
