@@ -1,9 +1,15 @@
 import React, {Component} from 'react';
 
+import './CSS/bucket.css';
+
 class Bucket extends Component {
     render() {
         return (
-            <div></div>
+            <div className={'bucketContainer'}>
+                <div className={'bucketForm'}>
+                    <p>lalalla</p>
+                </div>
+            </div>
         );
     }
 }

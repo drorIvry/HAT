@@ -12,6 +12,7 @@ import Logout from './components/logout';
 import history from './history';
 import {Router, Route} from 'react-router-dom';
 import Pledge from './components/Pledge';
+import Bucket from './components/Bucket';
 
 class App extends Component {
     render() {
@@ -27,6 +28,7 @@ class App extends Component {
                             <Route path="/dashboard" component={DashBoard}/>
                             <Route path='/logout' component={Logout}/>
                             <Route path='/pledge' component={Pledge}/>
+                            <Route path='/buckets' component={Bucket}/>
                         </div>
                     </Router>
                 </div>
