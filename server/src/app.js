@@ -6,7 +6,7 @@ import users from './routes/users';
 import routes from './routes';
 import mongoose from 'mongoose';
 import pledge from './routes/pledge';
-import {addToBucket, pourBucket} from './routes/bucketActions';
+import {addToBucket, pourBucket, filterBucket} from './routes/bucketActions';
 
 const app = express();
 app.disable('x-powered-by');
@@ -33,6 +33,7 @@ app.use('/users',users);
 app.use('/pledge',pledge);
 app.get('/bucket', pourBucket);
 app.post('/bucket', addToBucket);
+app.post('/filterBucket',filterBucket)
 
 
 // Catch 404 and forward to error handler

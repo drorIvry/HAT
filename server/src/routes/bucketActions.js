@@ -10,6 +10,20 @@ export function pourBucket(req, res) {
   });
 };
 
+export function filterBucket(req, res) {
+
+  const filters = req.body.filters
+
+  Activity.find({tags:{'$in':filters}}).then((doc) => {
+    res.send(doc);
+    res.end('docs');
+  }).catch((err) => {
+    res.end(500, err);
+  });
+};
+
+
+
 /* POST to add to the bucket */
 export function addToBucket(req, res) {
   var newActivity = new Activity(req.body);
