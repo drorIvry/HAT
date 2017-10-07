@@ -1,12 +1,11 @@
 
 .bucketForm {
     text-align: center;
-    margin-top: 200px;
+    margin-top: 10px;
     background-color: white;
     float: right;
-    right: 43%;
     position: relative;
-    width:300px;
+    width:100%;
     box-shadow: 5px 5px 5px grey;
 
 }
