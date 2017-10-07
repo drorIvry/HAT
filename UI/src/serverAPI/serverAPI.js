@@ -34,7 +34,11 @@ export function serverPledge(user) {
 
 export function pourBucket() {
     return new Promise((resolve, reject) => {
-        axios.get(serverProps.server + serverProps.bucketAPI)
+        axios.get(serverProps.server + serverProps.bucketAPI, {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
             .then(resolve)
             .catch(reject);
     });
@@ -42,7 +46,11 @@ export function pourBucket() {
 
 export function addToBucket(activity) {
     return new Promise((resolve, reject) => {
-        axios.post(serverProps.server + serverProps.bucketAPI, activity)
+        axios.post(serverProps.server + serverProps.bucketAPI, {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            }
+        },activity)
             .then(resolve)
             .catch(reject);
     });
@@ -50,7 +58,7 @@ export function addToBucket(activity) {
 
 export function filterBucket(filter) {
     return new Promise((resolve, reject) => {
-        axios.post(serverProps.server + serverProps.filterBucketAPI, filter)
+        axios.post(serverProps.server + serverProps.filterBucketAPI ,filter)
             .then(resolve)
             .catch(reject);
     });

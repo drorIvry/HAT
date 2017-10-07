@@ -14,11 +14,13 @@ export function filterBucket(req, res) {
 
   const filters = req.body.filters
 
+  console.log(filters);
+
   Activity.find({tags:{'$in':filters}}).then((doc) => {
     res.send(doc);
     res.end('docs');
   }).catch((err) => {
-    res.end(500, err);
+    return res.send(500, err);
   });
 };
 

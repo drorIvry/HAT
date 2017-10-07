@@ -1,3 +1,5 @@
+import { filterBucket, pourBucket } from '../serverAPI/serverAPI';
+
 export function filter(filters){
     return {
         type:"FILTER",
@@ -12,3 +14,20 @@ export function clearFilters(){
         }
     }
 }
+
+export function pour(){
+    return {
+        type:"POUR",
+        payload: pourBucket()
+    }
+}
+
+export function getFilteredBucket(filter){
+    return {
+        type:"GET_FILTERED",
+        payload: filterBucket(filter)
+    }
+}
+
+
+
