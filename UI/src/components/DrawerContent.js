@@ -32,6 +32,7 @@ class DrawerContent extends Component {
                     height={30} width={30}/>} caption='Metal Bucket' onClick={this.navigate.bind(this, ['metal'])}/>
                 <MenuDivider/>
                 <MenuItem value='pledge' caption='Take the pledge' onClick={() => {
+                    this.props.toggleDrawer();
                     history.push('/pledge')
                 }}/>
                 <MenuItem value='pledge' caption='Suggest a motion'/>

@@ -4,9 +4,13 @@ import Button from 'react-toolbox/lib/button/Button';
 import TableHead from 'react-toolbox/lib/table/TableHead';
 import TableCell from 'react-toolbox/lib/table/TableCell';
 import TableRow from 'react-toolbox/lib/table/TableRow';
+import Modal from 'react-modal';
 import {connect} from 'react-redux';
+import {customStyles} from '../modal/modalStyle';
 import { pour, getFilteredBucket} from "../actions/bucketActions";
 import './CSS/bucket.css';
+
+
 
 class Bucket extends Component {
 
@@ -15,7 +19,8 @@ class Bucket extends Component {
         this.state={
             deleteMode:false,
             selected:{},
-            openModal:false
+            openModal:false,
+            cardOpen:false,
         }
     }
 
@@ -46,9 +51,22 @@ class Bucket extends Component {
             this.props.doGetFilteredBucket(this.props.bucket.filters);
     }
 
+    openCard(item) {
+        this.setState({cardOpen:true});
+    }
+
+
+
+
     render() {
         return (
             <div className={'bucketContainer'}>
+
+                <Modal isOpen={this.state.cardOpen} style={customStyles} onRequestClose={()=>{this.setState({cardOpen:false})}}>
+
+                </Modal>
+
+
                 <div className={'bucketForm'}>
                     <Button icon={'add'} onClick={()=>{}}/>
                     <Button icon={'delete'} onClick={()=>{this.setState({...this.state,deleteMode:!this.state.deleteMode})}}/>
@@ -66,7 +84,7 @@ class Bucket extends Component {
                         {
                             this.props.bucket.activities.map((item, id) => {
                                 return (
-                                    <TableRow key={id} selected={item.name in this.state.selected}>
+                                    <TableRow key={id} selected={item.name in this.state.selected} onClick={this.openCard.bind(this, item)}>
                                         <TableCell><p>{item.name}</p></TableCell>
                                         <TableCell>{item.links}</TableCell>
                                         <TableCell>{item.description}</TableCell>
@@ -83,6 +101,8 @@ class Bucket extends Component {
         );
     }
 }
+
+
 
 const mapStateToProps = (state) => {
     return {

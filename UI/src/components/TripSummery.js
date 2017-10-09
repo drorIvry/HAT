@@ -13,9 +13,9 @@ class TripSummery extends Component {
     render() {
         return <div className={'wrapper'}>
             {
-                Object.keys(this.props.summery).map((card, index) => {
+              (this.props.summery).map((card, index) => {
 
-                    return (<SummeryCard title={this.props.summery[card].title} subtitle={this.props.summery[card].subtitle} value={this.props.summery[card].value} pledged={this.props.summery[card].pledged} key={index}/>);
+                    return (<SummeryCard title={card.title} subtitle={card.subtitle} value={card.value} pledged={card.pledged} key={index}/>);
                 })
             }
         </div>;
