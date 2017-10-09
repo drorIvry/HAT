@@ -58,7 +58,7 @@ export function addToBucket(activity) {
 
 export function filterBucket(filter) {
     return new Promise((resolve, reject) => {
-        axios.post(serverProps.server + serverProps.filterBucketAPI ,filter)
+        axios.post(serverProps.server + serverProps.filterBucketAPI ,{filters:filter})
             .then(resolve)
             .catch(reject);
     });

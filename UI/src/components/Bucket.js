@@ -39,6 +39,7 @@ class Bucket extends Component {
 
     componentWillMount() {
 
+
         if(this.props.bucket.filters.length === 0)
             this.props.doPour();
         else
@@ -49,7 +50,7 @@ class Bucket extends Component {
         return (
             <div className={'bucketContainer'}>
                 <div className={'bucketForm'}>
-                    <Button icon={'add'} onClick={()=>{this.setState({...this.state,openModal:!this.state.openModal})}}/>
+                    <Button icon={'add'} onClick={()=>{}}/>
                     <Button icon={'delete'} onClick={()=>{this.setState({...this.state,deleteMode:!this.state.deleteMode})}}/>
 
                     <Table multiSelectable={false} selectable={this.state.deleteMode} onRowSelect={this.select.bind(this)}>
