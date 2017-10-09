@@ -4,6 +4,7 @@ import MenuDivider from 'react-toolbox/lib/menu/MenuDivider';
 import history from '../history';
 import {connect} from 'react-redux';
 import {pour, getFilteredBucket} from "../actions/bucketActions";
+import {toggleDrawer} from '../actions/bucketActions';
 import {filter, clearFilters} from "../actions/bucketActions";
 
 
@@ -39,6 +40,7 @@ class DrawerContent extends Component {
     }
 
     navigate(filters) {
+        this.props.toggleDrawer();
         this.props.filter(filters);
         setTimeout(() => {
             this.props.doGetFilteredBucket(this.props.bucket.filters);
@@ -47,6 +49,7 @@ class DrawerContent extends Component {
     }
 
     navigateAndClear() {
+        this.props.toggleDrawer();
         this.props.clearFilters();
         setTimeout(() => {
             this.props.doPour();
@@ -74,6 +77,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         doGetFilteredBucket: (filters) => {
             dispatch(getFilteredBucket(filters));
+        },
+        toggleDrawer: (state) => {
+            dispatch(toggleDrawer(state));
         }
     };
 };

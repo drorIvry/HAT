@@ -7,6 +7,12 @@ export function filter(filters){
     }
 }
 
+export function toggleDrawer(state) {
+        return {
+            type:"TOGGLE_DRAWER"
+        };
+}
+
 export function clearFilters(){
     return {
         type:"CLEAR_FILTERS",

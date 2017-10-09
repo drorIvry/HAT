@@ -4,6 +4,7 @@ import IconMenu from 'react-toolbox/lib/menu/IconMenu';
 import MenuItem from 'react-toolbox/lib/menu/MenuItem';
 import MenuDivider from 'react-toolbox/lib/menu/MenuDivider';
 import {login} from '../actions/loginActions';
+import {toggleDrawer} from '../actions/bucketActions';
 import Drawer from 'react-toolbox/lib/drawer';
 import Snackbar from 'react-toolbox/lib/snackbar/Snackbar';
 import {connect} from 'react-redux';
@@ -35,7 +36,7 @@ class Header extends React.Component {
 
                 </AppBar>
 
-                <Drawer active={this.state.drawerActive} onOverlayClick={this.handleToggle}>
+                <Drawer active={this.props.bucket.drawerOpen} onOverlayClick={this.handleToggle}>
                     <DrawerContent/>
                 </Drawer>
 
@@ -62,7 +63,7 @@ class Header extends React.Component {
 
     handleToggle = () => {
         //if (this.props.login.logged)
-            this.setState({drawerActive: !this.state.drawerActive});
+            this.props.toggleDrawer();
         //else
         //    this.setState({snackBarActive:true});
     };
@@ -71,7 +72,8 @@ class Header extends React.Component {
 const mapStateToProps = (state) => {
     return {
         login: state.login,
-        logout: state.logout
+        logout: state.logout,
+        bucket: state.bucket,
     };
 };
 
@@ -79,6 +81,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         doLogin: (userName) => {
             dispatch(login(userName));
+        },
+        toggleDrawer: (state) => {
+            dispatch(toggleDrawer(state));
         }
     };
 };
