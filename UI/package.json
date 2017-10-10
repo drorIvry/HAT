@@ -13,6 +13,8 @@
     "react-redux": "latest",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
+    "react-scroll-area": "^0.1.2",
+    "react-scrollbar": "^0.5.1",
     "react-toolbox": "latest",
     "react-toolbox/lib/ThemeProvider": "latest",
     "redux": "latest",

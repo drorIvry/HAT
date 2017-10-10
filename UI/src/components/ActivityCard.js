@@ -7,32 +7,47 @@ import ImageGallery from 'react-image-gallery';
 import Avatar from 'react-toolbox/lib/avatar/Avatar';
 import "react-image-gallery/styles/css/image-gallery.css";
 import icons from '../icons/tagIcons';
+import './CSS/activityCard.css';
 
 class ActivityCard extends Component {
 
 
     getImages() {
 
-        var images=[];
+        let images = [];
 
-        for(var link in this.props.bucket.activeCard.links) {
-            var url = this.props.bucket.activeCard.links[link];
+        for (let link in this.props.bucket.activeCard.links) {
+            let url = this.props.bucket.activeCard.links[link];
 
             if (url.match(/\.(jpeg|jpg|gif|png|svg)$/) !== null) {
-               images.push({original:url,thumbnail:url});
+                images.push({original: url, thumbnail: url});
             }
         }
 
-        if(images.length === 0)
-            images.push({original:"http://blog.enableb.com/static/dist/images/placeholder/no_image.svg"});
+        if (images.length === 0)
+            images.push({original: "http://blog.enableb.com/static/dist/images/placeholder/no_image.svg"});
 
         return images;
+    }
+
+    getLinks() {
+        let links = [];
+
+        for (let link in this.props.bucket.activeCard.links) {
+            let url = this.props.bucket.activeCard.links[link];
+
+            if (url.match(/\.(jpeg|jpg|gif|png|svg)$/) === null) {
+                links.push(url);
+            }
+        }
+
+        return links;
     }
 
     render() {
         return (
             <div>
-                <Card style={{width: '400px'}}>
+                <Card style={{width: '400px', height:'80%'}}>
                     <CardTitle
                         avatar={this.getAvatar()}
                         title={this.props.bucket.activeCard.name}
@@ -46,26 +61,35 @@ class ActivityCard extends Component {
                     <CardText>
                         {this.props.bucket.activeCard.description}
                     </CardText>
+                    <CardTitle
+                        title="Additional Links"
+                    />
+                    {
+                        this.getLinks().map((url, index) => {
+                            if((url !== ' ')||(url !==''))
+                                return <a href={url} key={index} target="_blank" style={{"padding": "10px"}}>{url}</a>;
+                        })
+                    }
                 </Card>
             </div>
         );
     }
 
     getTagImage() {
-        return <Avatar image={icons[this.props.bucket.activeCard.tags[0]]} cover />;
+        return <Avatar image={icons[this.props.bucket.activeCard.tags[0]]} cover/>;
     }
 
-    getAvatar(){
+    getAvatar() {
 
         var images = this.getImages();
 
-        if(images[0].original === "http://blog.enableb.com/static/dist/images/placeholder/no_image.svg")
+        if (images[0].original === "http://blog.enableb.com/static/dist/images/placeholder/no_image.svg")
             return this.getTagImage();
 
         console.log(images);
 
         var image = images[0].original;
-        return <Avatar image={image} cover />;
+        return <Avatar image={image} cover/>;
 
     }
 }

@@ -88,7 +88,6 @@ class AddStuff extends Component {
             this.setState({message:"SOMETHING WENT WRONG",snackBarActive:true});
             console.error(error);
         })
-
     }
 
     handleChange = (name, value) => {
