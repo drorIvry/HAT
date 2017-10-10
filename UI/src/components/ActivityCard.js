@@ -39,7 +39,7 @@ class ActivityCard extends Component {
                         subtitle={this.props.bucket.activeCard.address + " " + this.props.bucket.activeCard.state}
 
                     />
-                    <ImageGallery items={this.getImages()} showFullscreenButton={false}/>
+                    <ImageGallery items={this.getImages()} showFullscreenButton={false} showPlayButton={false}/>
                     <CardTitle
                         title="Description"
                     />

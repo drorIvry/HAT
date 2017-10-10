@@ -6,7 +6,7 @@ class AddStuff extends Component {
         return (
             <div className={'addContainer'}>
                 <div className={'addForm'}>
-                     
+
                 </div>
             </div>
         );

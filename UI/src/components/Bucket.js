@@ -6,6 +6,8 @@ import TableCell from 'react-toolbox/lib/table/TableCell';
 import TableRow from 'react-toolbox/lib/table/TableRow';
 import Modal from 'react-modal';
 import {connect} from 'react-redux';
+import Avatar from 'react-toolbox/lib/avatar/Avatar';
+import icons from '../icons/tagIcons';
 import {customStyles} from '../modal/modalStyle';
 import {pour, getFilteredBucket, chooseCard} from "../actions/bucketActions";
 import './CSS/bucket.css';
@@ -57,6 +59,9 @@ class Bucket extends Component {
         this.setState({cardOpen: true});
     }
 
+    getAvatars() {
+        <Avatar image={icons[this.props.bucket.activeCard.tags[0]]} cover />
+    }
 
     render() {
         return (
@@ -72,7 +77,6 @@ class Bucket extends Component {
                            onRowSelect={this.select.bind(this)}>
                         <TableHead displaySelect={false}>
                             <TableCell>Name</TableCell>
-                            <TableCell>Links</TableCell>
                             <TableCell>Description</TableCell>
                             <TableCell>State</TableCell>
                             <TableCell>Address</TableCell>
@@ -88,7 +92,11 @@ class Bucket extends Component {
                                         <TableCell>{item.description}</TableCell>
                                         <TableCell>{item.state}</TableCell>
                                         <TableCell>{item.address}</TableCell>
-                                        <TableCell>{item.tags}</TableCell>
+                                        <TableCell>{
+                                            item.tags.map((tag, key) => {
+                                                return <Avatar image={icons[tag]} key={key} cover />
+                                            })
+                                        }</TableCell>
                                     </TableRow>
                                 )
                             })
