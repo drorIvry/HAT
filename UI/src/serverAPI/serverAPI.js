@@ -46,11 +46,11 @@ export function pourBucket() {
 
 export function addToBucket(activity) {
     return new Promise((resolve, reject) => {
-        axios.post(serverProps.server + serverProps.bucketAPI, {
+        axios.post(serverProps.server + serverProps.bucketAPI, activity , {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             }
-        },activity)
+        })
             .then(resolve)
             .catch(reject);
     });

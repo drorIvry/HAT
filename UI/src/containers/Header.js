@@ -45,8 +45,6 @@ class Header extends React.Component {
                     active={this.state.snackBarActive}
                     label='Please Login'
                     timeout={2000}
-                    onClick={this.handleSnackbarClick}
-                    onTimeout={this.handleSnackbarTimeout}
                     type='cancel'
                 />
             </div>

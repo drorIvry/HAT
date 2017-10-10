@@ -5,6 +5,9 @@ import Button from 'react-toolbox/lib/button/Button';
 import Autocomplete from 'react-toolbox/lib/autocomplete/Autocomplete';
 import usStates from '../states/USStates';
 import tags from '../icons/tagIcons';
+import {addToBucket} from "../serverAPI/serverAPI";
+import Snackbar from 'react-toolbox/lib/snackbar/Snackbar';
+import history from '../history';
 
 class AddStuff extends Component {
     constructor(){
@@ -16,7 +19,9 @@ class AddStuff extends Component {
             state:'',
             links:'',
             tags:[],
-            required:false
+            required:false,
+            message:'',
+            snackBarActive:false
         }
     }
 
@@ -47,12 +52,43 @@ class AddStuff extends Component {
 
                     <Button label={'Add'} onClick={this.add.bind(this)}/>
                 </div>
+
+                <Snackbar
+                    action='Dismiss'
+                    active={this.state.snackBarActive}
+                    label={this.state.message}
+                    timeout={2000}
+                    type='cancel'
+                />
+
             </div>
         );
     }
 
     add(){
-        console.log(this.state);
+        let data = {
+            name:this.state.name,
+            links:this.state.links.split('\n'),
+            description:this.state.description,
+            state: usStates[this.state.state],
+            address: this.state.address,
+            tags:this.state.tags
+        };
+
+        console.log(data);
+
+        addToBucket(data).then(()=>{
+            this.setState({message:"added successfully",snackBarActive:true});
+
+            setTimeout(() =>{
+                history.push('/dashboard');
+            },500);
+
+        }).catch((error) => {
+            this.setState({message:"SOMETHING WENT WRONG",snackBarActive:true});
+            console.error(error);
+        })
+
     }
 
     handleChange = (name, value) => {
