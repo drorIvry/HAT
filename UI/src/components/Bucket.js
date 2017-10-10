@@ -68,12 +68,6 @@ class Bucket extends Component {
                 </Modal>
 
                 <div className={'bucketForm'}>
-                    <Button icon={'add'} onClick={() => {
-                    }}/>
-                    <Button icon={'delete'} onClick={() => {
-                        this.setState({...this.state, deleteMode: !this.state.deleteMode})
-                    }}/>
-
                     <Table multiSelectable={false} selectable={this.state.deleteMode}
                            onRowSelect={this.select.bind(this)}>
                         <TableHead displaySelect={false}>
