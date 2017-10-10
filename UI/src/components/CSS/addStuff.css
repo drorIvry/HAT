@@ -1,11 +1,12 @@
 .addForm {
     text-align: center;
-    margin-top: 200px;
+    margin-top: 20px;
     background-color: white;
     float: right;
-    right: 43%;
+    right: 30%;
     position: relative;
-    width:300px;
+    width:600px;
+    padding: 10px;
     box-shadow: 5px 5px 5px grey;
 
 }
