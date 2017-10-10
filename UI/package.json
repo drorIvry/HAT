@@ -8,6 +8,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-image": "^1.0.1",
+    "react-image-gallery": "^0.8.3",
     "react-modal": "^3.0.0",
     "react-redux": "latest",
     "react-router": "^4.2.0",

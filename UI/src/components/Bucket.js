@@ -7,20 +7,19 @@ import TableRow from 'react-toolbox/lib/table/TableRow';
 import Modal from 'react-modal';
 import {connect} from 'react-redux';
 import {customStyles} from '../modal/modalStyle';
-import { pour, getFilteredBucket} from "../actions/bucketActions";
+import {pour, getFilteredBucket, chooseCard} from "../actions/bucketActions";
 import './CSS/bucket.css';
-
-
+import ActivityCard from "./ActivityCard";
 
 class Bucket extends Component {
 
-    constructor(){
+    constructor() {
         super();
-        this.state={
-            deleteMode:false,
-            selected:{},
-            openModal:false,
-            cardOpen:false,
+        this.state = {
+            deleteMode: false,
+            selected: {},
+            openModal: false,
+            cardOpen: false,
         }
     }
 
@@ -29,50 +28,55 @@ class Bucket extends Component {
         console.log(this);
         const tempActivities = [...this.props.bucket.activities]
 
-        const items = newSelected.map((item) => {return tempActivities[item].name});
+        const items = newSelected.map((item) => {
+            return tempActivities[item].name
+        });
         const tempSelected = {...this.state.selected}
-        for(const item in items) {
+        for (const item in items) {
 
 
-            if(items[item] in tempSelected)
+            if (items[item] in tempSelected)
                 delete tempSelected[items[item]];
             else
                 tempSelected[items[item]] = items[item];
         }
-        this.setState({selected:{...tempSelected}});
+        this.setState({selected: {...tempSelected}});
     }
 
     componentWillMount() {
 
 
-        if(this.props.bucket.filters.length === 0)
+        if (this.props.bucket.filters.length === 0)
             this.props.doPour();
         else
             this.props.doGetFilteredBucket(this.props.bucket.filters);
     }
 
     openCard(item) {
-        this.setState({cardOpen:true});
+        this.props.doChooseCard(item);
+        this.setState({cardOpen: true});
     }
-
-
 
 
     render() {
         return (
             <div className={'bucketContainer'}>
-
-                <Modal isOpen={this.state.cardOpen} style={customStyles} onRequestClose={()=>{this.setState({cardOpen:false})}}>
-
+                <Modal isOpen={this.state.cardOpen} style={customStyles} onRequestClose={() => {
+                    this.setState({cardOpen: false})
+                }}>
+                    <ActivityCard/>
                 </Modal>
 
-
                 <div className={'bucketForm'}>
-                    <Button icon={'add'} onClick={()=>{}}/>
-                    <Button icon={'delete'} onClick={()=>{this.setState({...this.state,deleteMode:!this.state.deleteMode})}}/>
+                    <Button icon={'add'} onClick={() => {
+                    }}/>
+                    <Button icon={'delete'} onClick={() => {
+                        this.setState({...this.state, deleteMode: !this.state.deleteMode})
+                    }}/>
 
-                    <Table multiSelectable={false} selectable={this.state.deleteMode} onRowSelect={this.select.bind(this)}>
-                        <TableHead displaySelect={this.state.deleteMode}>
+                    <Table multiSelectable={false} selectable={this.state.deleteMode}
+                           onRowSelect={this.select.bind(this)}>
+                        <TableHead displaySelect={false}>
                             <TableCell>Name</TableCell>
                             <TableCell>Links</TableCell>
                             <TableCell>Description</TableCell>
@@ -84,9 +88,9 @@ class Bucket extends Component {
                         {
                             this.props.bucket.activities.map((item, id) => {
                                 return (
-                                    <TableRow key={id} selected={item.name in this.state.selected} onClick={this.openCard.bind(this, item)}>
+                                    <TableRow key={id} selected={item.name in this.state.selected}
+                                              onClick={this.openCard.bind(this, item)}>
                                         <TableCell><p>{item.name}</p></TableCell>
-                                        <TableCell>{item.links}</TableCell>
                                         <TableCell>{item.description}</TableCell>
                                         <TableCell>{item.state}</TableCell>
                                         <TableCell>{item.address}</TableCell>
@@ -102,8 +106,6 @@ class Bucket extends Component {
     }
 }
 
-
-
 const mapStateToProps = (state) => {
     return {
         bucket: state.bucket
@@ -117,6 +119,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         doGetFilteredBucket: (filters) => {
             dispatch(getFilteredBucket(filters));
+        },
+        doChooseCard: (item) => {
+            dispatch(chooseCard(item));
         }
     };
 };
