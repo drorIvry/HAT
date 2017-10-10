@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Table from 'react-toolbox/lib/table/Table';
-import Button from 'react-toolbox/lib/button/Button';
 import TableHead from 'react-toolbox/lib/table/TableHead';
 import TableCell from 'react-toolbox/lib/table/TableCell';
 import TableRow from 'react-toolbox/lib/table/TableRow';
