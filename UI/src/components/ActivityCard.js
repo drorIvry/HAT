@@ -46,7 +46,7 @@ class ActivityCard extends Component {
 
     render() {
         return (
-            <div>
+            <div className={'cardForm'}>
                 <Card style={{width: '400px', height:'80%'}}>
                     <CardTitle
                         avatar={this.getAvatar()}
