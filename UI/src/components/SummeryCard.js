@@ -46,8 +46,8 @@ class SummeryCard extends Component {
 
         voted.push(user);
 
-        vote(title,voted).then((data)=>{
-            histoy.push('/dashboard');
+        vote(title,voted).then(()=>{
+
         }).catch((err)=>{
             console.error("aaaaaa",err);
         });
