@@ -5,5 +5,5 @@ export default {
     bucketAPI:'/bucket',
     filterBucketAPI:'/filterBucket',
     motionsAPI:'/motions',
-    voteAPI:'vote'
+    voteAPI:'/vote'
 }

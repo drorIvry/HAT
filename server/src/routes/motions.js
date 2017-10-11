@@ -33,7 +33,7 @@ export function voteForMotion(req, res) {
   if((rawData.title === undefined)||(rawData.voted === undefined))
     return res.send(400,"bad request");
 
-  Motion.update({name:rawData.name},{voted:rawData.voted},{},(err) => {
+  Motion.update({title:rawData.title},{voted:rawData.voted},{},(err) => {
     if (err)
       return res.send(500, { error: err });
 
