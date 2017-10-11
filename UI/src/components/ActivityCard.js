@@ -47,7 +47,7 @@ class ActivityCard extends Component {
     render() {
         return (
             <div className={'cardForm'}>
-                <Card style={{width: '400px', height:'80%'}}>
+                <Card>
                     <CardTitle
                         avatar={this.getAvatar()}
                         title={this.props.bucket.activeCard.name}

@@ -1580,7 +1580,7 @@
 }
 
 ._3wffD {
-    width: 50vw
+    width: 25vw
 }
 
 @media screen and (max-width:600px) {
@@ -1624,7 +1624,9 @@
     -webkit-box-flex: 2;
     -ms-flex-positive: 2;
     flex-grow: 2;
-    padding: 24px
+    overflow-y: auto;
+    overflow-x: hidden;
+    width:100%;
 }
 
 ._33od4 p {

@@ -3,7 +3,7 @@ import Table from 'react-toolbox/lib/table/Table';
 import TableHead from 'react-toolbox/lib/table/TableHead';
 import TableCell from 'react-toolbox/lib/table/TableCell';
 import TableRow from 'react-toolbox/lib/table/TableRow';
-import Modal from 'react-modal';
+import Dialog from 'react-toolbox/lib/dialog/Dialog';
 import {connect} from 'react-redux';
 import Avatar from 'react-toolbox/lib/avatar/Avatar';
 import icons from '../icons/tagIcons';
@@ -62,14 +62,21 @@ class Bucket extends Component {
         <Avatar image={icons[this.props.bucket.activeCard.tags[0]]} cover />
     }
 
+    handleToggle() {
+        this.setState({cardOpen: false});
+    }
+
     render() {
         return (
             <div className={'bucketContainer'}>
-                <Modal isOpen={this.state.cardOpen} style={customStyles} onRequestClose={() => {
-                    this.setState({cardOpen: false})
-                }}>
+                <Dialog
+                    active={this.state.cardOpen}
+                    onEscKeyDown={this.handleToggle.bind(this)}
+                    onOverlayClick={this.handleToggle.bind(this)}
+                    style={{width:"400px"}}
+                >
                     <ActivityCard/>
-                </Modal>
+                </Dialog>
 
                 <div className={'bucketForm'}>
                     <Table multiSelectable={false} selectable={this.state.deleteMode}

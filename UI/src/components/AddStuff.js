@@ -57,7 +57,6 @@ class AddStuff extends Component {
                     action='Dismiss'
                     active={this.state.snackBarActive}
                     label={this.state.message}
-                    timeout={2000}
                     type='cancel'
                 />
 
@@ -82,7 +81,7 @@ class AddStuff extends Component {
 
             setTimeout(() =>{
                 history.push('/dashboard');
-            },500);
+            },2000);
 
         }).catch((error) => {
             this.setState({message:"SOMETHING WENT WRONG",snackBarActive:true});
