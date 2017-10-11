@@ -1,0 +1,35 @@
+{
+  "name": "hat",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.16.2",
+    "history": "^4.7.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-image": "^1.0.1",
+    "react-image-gallery": "^0.8.3",
+    "react-modal": "^3.0.0",
+    "react-redux": "latest",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scroll-area": "^0.1.2",
+    "react-scrollbar": "^0.5.1",
+    "react-toolbox": "latest",
+    "react-toolbox/lib/ThemeProvider": "latest",
+    "redux": "latest",
+    "redux-connect-decorator": "^0.1.0",
+    "redux-logger": "latest",
+    "redux-promise-middleware": "^4.4.1"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.12"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "toolbox": "react-toolbox-themr"
+  }
+}

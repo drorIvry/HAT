@@ -1,0 +1,35 @@
+.pledgeWrapper {
+    text-align: center;
+}
+
+.ListItem{
+    text-align: left;
+
+}
+
+.pledge {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    float: right;
+    right: 0%;
+    position: relative;
+    width:100%;
+    box-shadow: 5px 5px 5px grey;
+
+}
+
+.pledgeButton{
+    margin: 10px;
+    border-width: thin;
+    border-style: solid;
+    border-radius: 5px;
+    background-color: #8dace080;
+}
+
+.pledgeWrapper {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
