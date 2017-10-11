@@ -5,6 +5,6 @@ export default mongoose.model('summery', mongoose.Schema({
   avatar:String,
   title:String,
   subtitle:String,
-  pledged:[String],
+  voted:[String],
   value:String,
 }));
