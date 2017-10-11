@@ -13,7 +13,7 @@ class TripSummery extends Component {
     render() {
         return <div className={'wrapper'}>
             {
-              (this.props.summery).map((card, index) => {
+              (this.props.summery.motions).map((card, index) => {
 
                     return (<SummeryCard title={card.title} subtitle={card.subtitle} value={card.value} pledged={card.pledged} key={index}/>);
                 })

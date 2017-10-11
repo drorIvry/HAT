@@ -3,5 +3,7 @@ export default {
     loginAPI:"/users",
     pledgeAPI:'/pledge',
     bucketAPI:'/bucket',
-    filterBucketAPI:'/filterBucket'
+    filterBucketAPI:'/filterBucket',
+    motionsAPI:'/motions',
+    voteAPI:'vote'
 }

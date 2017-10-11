@@ -64,4 +64,42 @@ export function filterBucket(filter) {
     });
 }
 
+export function getAllmotions() {
+    return new Promise((resolve, reject) => {
+        axios.get(serverProps.server + serverProps.motionsAPI, {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+            .then(resolve)
+            .catch(reject);
+    });
+}
+
+export function addMotionToVote(motion) {
+    return new Promise((resolve, reject) => {
+        axios.post(serverProps.server + serverProps.motionsAPI, motion , {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            }
+        })
+            .then(resolve)
+            .catch(reject);
+    });
+}
+
+export function vote(title, voted) {
+    return new Promise((resolve, reject) => {
+        axios.post(serverProps.server + serverProps.voteAPI, {
+        title:title, voted:voted
+    } , {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        }
+    })
+        .then(resolve)
+        .catch(reject);
+    });
+}
+
 
