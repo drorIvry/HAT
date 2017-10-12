@@ -14,6 +14,7 @@ import {Router, Route} from 'react-router-dom';
 import Pledge from './components/Pledge';
 import Bucket from './components/Bucket';
 import AddStuff from './components/AddStuff';
+import MotionInput from "./components/MotionInput";
 
 class App extends Component {
     render() {
@@ -31,6 +32,7 @@ class App extends Component {
                             <Route path='/pledge' component={Pledge}/>
                             <Route path='/buckets' component={Bucket}/>
                             <Route path='/add' component={AddStuff}/>
+                            <Route path='/motion' component={MotionInput}/>
                         </div>
                     </Router>
                 </div>

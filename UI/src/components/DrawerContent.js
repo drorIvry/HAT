@@ -42,7 +42,10 @@ class DrawerContent extends Component {
                     history.push('/add')
                 }}/>
 
-                <MenuItem value='motion' caption='Suggest a motion'/>
+                <MenuItem value='motion' caption='Suggest a motion'  onClick={() => {
+                    this.props.toggleDrawer();
+                    history.push('/motion')
+                }}/>
             </div>
         );
     }

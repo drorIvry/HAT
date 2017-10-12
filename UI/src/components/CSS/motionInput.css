@@ -1,0 +1,18 @@
+.motionForm {
+    text-align: center;
+    margin-top: 20px;
+    background-color: white;
+    float: right;
+    right: 30%;
+    position: relative;
+    width:600px;
+    padding: 10px;
+    box-shadow: 5px 5px 5px grey;
+    margin-bottom: 15px;
+}
+
+.motionContainer {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
