@@ -1,10 +1,11 @@
-.wrapper{
-    margin: 10px;
+.statusWrapper{
+    margin-top: 10px;
     display: flex;
     z-index: 0;
+    width: 100%;
+    overflow: auto;
 }
 .form{
-    margin: 10px;
     display: flex;
     z-index: 0;
 }
@@ -17,7 +18,7 @@
 }
 
 .Card{
-    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .profile{

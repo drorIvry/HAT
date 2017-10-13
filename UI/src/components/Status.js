@@ -4,7 +4,6 @@ import Hacks from '../icons/Hacks';
 import Card from 'react-toolbox/lib/card/Card';
 import CardTitle from 'react-toolbox/lib/card/CardTitle';
 import CardText from 'react-toolbox/lib/card/CardText';
-import CardMedia from 'react-toolbox/lib/card/CardMedia';
 import './CSS/status.css';
 
 class Status extends Component {
@@ -30,7 +29,7 @@ class Status extends Component {
 
     render() {
         return (
-            <div className={'wrapper'}>
+            <div className={'statusWrapper'}>
                 <div className={'form'}>
                 {
                     this.state.users.map((user, key) => {
