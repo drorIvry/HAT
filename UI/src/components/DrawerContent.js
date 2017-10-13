@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {pour, getFilteredBucket} from "../actions/bucketActions";
 import {toggleDrawer} from '../actions/bucketActions';
 import {filter, clearFilters} from "../actions/bucketActions";
+import {validatePledge} from "../actions/pledgeAction";
 import icons from '../icons/tagIcons';
 
 
@@ -42,12 +43,25 @@ class DrawerContent extends Component {
                     history.push('/add')
                 }}/>
 
-                <MenuItem value='motion' caption='Suggest a motion'  onClick={() => {
-                    this.props.toggleDrawer();
-                    history.push('/motion')
-                }}/>
+                <MenuItem value='motion' caption='Suggest a motion'  onClick={this.validateAndNavigate.bind(this)}/>
             </div>
         );
+    }
+
+    validateAndNavigate() {
+
+        validatePledge(this.props.login.user).then((pledged) => {
+
+            if(pledged) {
+                this.props.toggleDrawer();
+                history.push('/motion');
+            }
+            else
+                alert('you must pledge to suggest a motion.');
+
+        }).catch((err) => {
+            console.error(err);
+        });
     }
 
     navigate(filters) {
@@ -72,6 +86,7 @@ class DrawerContent extends Component {
 const mapStateToProps = (state) => {
     return {
         bucket: state.bucket,
+        login: state.login
     };
 };
 
