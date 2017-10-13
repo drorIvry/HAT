@@ -43,6 +43,11 @@ class DrawerContent extends Component {
                     history.push('/add')
                 }}/>
 
+                <MenuItem value='status' caption={'Hack\'s statuses'}  onClick={() => {
+                    this.props.toggleDrawer();
+                    history.push('/status')
+                }}/>
+
                 <MenuItem value='motion' caption='Suggest a motion'  onClick={this.validateAndNavigate.bind(this)}/>
             </div>
         );

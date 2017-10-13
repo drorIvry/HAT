@@ -15,6 +15,7 @@ import Pledge from './components/Pledge';
 import Bucket from './components/Bucket';
 import AddStuff from './components/AddStuff';
 import MotionInput from "./components/MotionInput";
+import Status from "./components/Status";
 
 class App extends Component {
     render() {
@@ -33,6 +34,7 @@ class App extends Component {
                             <Route path='/buckets' component={Bucket}/>
                             <Route path='/add' component={AddStuff}/>
                             <Route path='/motion' component={MotionInput}/>
+                            <Route path='/status' component={Status}/>
                         </div>
                     </Router>
                 </div>
