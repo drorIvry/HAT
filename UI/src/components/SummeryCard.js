@@ -7,10 +7,10 @@ import List from 'react-toolbox/lib/list/List';
 import ListItem from 'react-toolbox/lib/list/ListItem';
 import Button from 'react-toolbox/lib/button/Button';
 import {vote} from '../serverAPI/serverAPI';
-import histoy from '../history';
-
+import { validatePledge} from "../actions/pledgeAction";
 
 class SummeryCard extends Component {
+
     render() {
         console.log(this.props);
         return (
@@ -39,18 +39,41 @@ class SummeryCard extends Component {
         const voted = [...this.props.voted];
         const user = this.props.user;
 
-        if (voted.indexOf(user) !== -1) {
-            alert('can\'t vote twice');
-            return;
-        }
+        const pledged = validatePledge(user).then((pledged) => {
 
-        voted.push(user);
+            console.log('pledged', pledged);
 
-        vote(title,voted).then(()=>{
+            if(!pledged){
+                alert('only pledged members can vote!');
+                return;
+            }
 
-        }).catch((err)=>{
-            console.error("aaaaaa",err);
-        });
+            console.log(this.props);
+
+            /*if(user === "please login") {
+                alert('please login');
+                return;
+            }*/
+
+            if (voted.indexOf(user) !== -1) {
+                alert('can\'t vote twice');
+                return;
+            }
+
+            voted.push(user);
+
+            vote(title,voted).then(()=>{
+                window.location.reload();
+            }).catch((err)=>{
+                console.error("aaaaaa",err);
+            });
+        }).catch(
+            (error) => {
+                console.error(error)
+            }
+        );
+
+
     }
 }
 

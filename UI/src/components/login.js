@@ -42,6 +42,7 @@ class Login extends React.Component {
 
         setTimeout(() =>{
             if(this.props.login.logged)
+                localStorage.setItem('login', this.props.login.user);
                 history.push('/dashboard');
         },500);
     }

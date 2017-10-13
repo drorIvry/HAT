@@ -6,6 +6,7 @@ import users from './routes/users';
 import routes from './routes';
 import mongoose from 'mongoose';
 import pledge from './routes/pledge';
+import getUsers from './routes/getUsers';
 import {addToBucket, pourBucket, filterBucket} from './routes/bucketActions';
 import {addMotionToVote, getMotions, voteForMotion} from './routes/motions';
 
@@ -45,6 +46,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 app.use('/', routes);
 app.use('/users',users);
 app.use('/pledge',pledge);
+app.use('/getusers',getUsers);
 app.get('/bucket', pourBucket);
 app.post('/bucket', addToBucket);
 app.post('/filterBucket',filterBucket);

@@ -102,4 +102,17 @@ export function vote(title, voted) {
     });
 }
 
+export function getUsers() {
+    return new Promise((resolve, reject) => {
+        axios.get(serverProps.server + serverProps.getUsers, {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+            .then(resolve)
+            .catch(reject);
+    });
+}
+
+
 

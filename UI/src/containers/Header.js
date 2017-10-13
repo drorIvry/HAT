@@ -3,7 +3,7 @@ import AppBar from 'react-toolbox/lib/app_bar/AppBar';
 import IconMenu from 'react-toolbox/lib/menu/IconMenu';
 import MenuItem from 'react-toolbox/lib/menu/MenuItem';
 import MenuDivider from 'react-toolbox/lib/menu/MenuDivider';
-import {login} from '../actions/loginActions';
+import {loginMock} from '../actions/loginActions';
 import {toggleDrawer} from '../actions/bucketActions';
 import Drawer from 'react-toolbox/lib/drawer';
 import Snackbar from 'react-toolbox/lib/snackbar/Snackbar';
@@ -55,9 +55,14 @@ class Header extends React.Component {
         history.push(dest);
     }
 
-    handleSnackbarClick = () => {
-        this.setState({snackBarActive:false});
-    };
+    componentWillMount(){
+        let tempProps = localStorage.getItem('login');
+
+        console.log(tempProps,((tempProps !== null)), typeof tempProps)
+
+        if(tempProps !== null)
+            this.props.doLogin(tempProps);
+    }
 
     handleToggle = () => {
         //if (this.props.login.logged)
@@ -78,7 +83,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         doLogin: (userName) => {
-            dispatch(login(userName));
+            dispatch(loginMock(userName));
         },
         toggleDrawer: (state) => {
             dispatch(toggleDrawer(state));
