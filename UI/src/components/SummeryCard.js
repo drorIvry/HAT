@@ -6,8 +6,11 @@ import CardActions from 'react-toolbox/lib/card/CardActions';
 import List from 'react-toolbox/lib/list/List';
 import ListItem from 'react-toolbox/lib/list/ListItem';
 import Button from 'react-toolbox/lib/button/Button';
+import Chip from 'react-toolbox/lib/chip/Chip';
+import Avatar from 'react-toolbox/lib/avatar/Avatar';
 import {vote} from '../serverAPI/serverAPI';
 import { validatePledge} from "../actions/pledgeAction";
+import hacks from '../icons/Hacks';
 
 class SummeryCard extends Component {
 
@@ -25,7 +28,10 @@ class SummeryCard extends Component {
                     </CardTitle>
                     <CardText>{this.props.value}</CardText>
                     <CardTitle title="pledged senators"/>
-                    <CardText>{this.props.voted.map((vote,index)=>{return <p key={index}>{vote}</p>})}</CardText>
+                    <CardText>{this.props.voted.map((vote,index)=>{return<Chip key={index}>
+                        <Avatar><img src={hacks[vote]}/></Avatar>
+                        <span>{vote}</span>
+                    </Chip>})}</CardText>
                     <CardActions>
                         <Button icon={'person_add'} onClick={this.doVote.bind(this)}/>
                     </CardActions>
