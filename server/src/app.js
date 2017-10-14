@@ -3,7 +3,6 @@ import path from 'path';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
 import users from './routes/users';
-import routes from './routes';
 import mongoose from 'mongoose';
 import pledge from './routes/pledge';
 import getUsers from './routes/getUsers';
@@ -44,7 +43,6 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 // Routes
-app.use('/', routes);
 app.use('/users',users);
 app.use('/pledge',pledge);
 app.use('/getusers',getUsers);
@@ -59,7 +57,7 @@ app.post('/usersAdd',(req, res) => {
   let newSenator = new Senator(req.body);
   newSenator.save((err) => {
     if (err)
-      return res.send(2000, {error: err});
+      return res.send(500, {error: err});
 
     return res.send("successfully saved");
   });

@@ -1,5 +1,5 @@
 export default {
-    server:"",
+    server:"https://hat-server.herokuapp.com",
     loginAPI:"/users",
     pledgeAPI:'/pledge',
     bucketAPI:'/bucket',

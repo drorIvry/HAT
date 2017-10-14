@@ -65,10 +65,10 @@ class Header extends React.Component {
     }
 
     handleToggle = () => {
-        //if (this.props.login.logged)
+        if (this.props.login.logged)
             this.props.toggleDrawer();
-        //else
-        //    this.setState({snackBarActive:true});
+        else
+            this.setState({snackBarActive:true});
     };
 };
 
