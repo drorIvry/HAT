@@ -7,6 +7,7 @@ import routes from './routes';
 import mongoose from 'mongoose';
 import pledge from './routes/pledge';
 import getUsers from './routes/getUsers';
+import Senator from './dal/Senator';
 import {addToBucket, pourBucket, filterBucket} from './routes/bucketActions';
 import {addMotionToVote, getMotions, voteForMotion} from './routes/motions';
 
@@ -22,7 +23,7 @@ app.use(logger('dev', {
 }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../build')));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -38,7 +39,7 @@ app.options("/*", function(req, res, next){
 });
 
 //Mongo
-mongoose.connect('mongodb://localhost:27017/hat');
+mongoose.connect('mongodb://drorivry:pastaking44@ds119395.mlab.com:19395/hat');
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
@@ -53,6 +54,16 @@ app.post('/filterBucket',filterBucket);
 app.get('/motions', getMotions);
 app.post('/motions',addMotionToVote);
 app.post('/vote',voteForMotion);
+app.post('/usersAdd',(req, res) => {
+
+  let newSenator = new Senator(req.body);
+  newSenator.save((err) => {
+    if (err)
+      return res.send(2000, {error: err});
+
+    return res.send("successfully saved");
+  });
+});
 
 
 // Catch 404 and forward to error handler
