@@ -47,7 +47,7 @@ class Status extends Component {
                                 <img src={avatar} className={'profile'}/>
 
                                 <CardText>
-                                    {'Pledged:'} <img className={'pledge'} src={user.pledged ? 'http://www.clker.com/cliparts/6/d/6/3/l/M/check-mark.svg' :"http://www.clker.com/cliparts/U/J/s/I/3/P/red-x-icon-md.png"}/>
+                                    {'Pledged:'} <img className={'pledgeStatus'} src={user.pledged ? 'http://www.clker.com/cliparts/6/d/6/3/l/M/check-mark.svg' :"http://www.clker.com/cliparts/U/J/s/I/3/P/red-x-icon-md.png"}/>
                                 </CardText>
                             </Card>);
                     })
