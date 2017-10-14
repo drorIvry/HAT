@@ -7,6 +7,13 @@ export function login(user, password){
     }
 }
 
+export function loginMock(user){
+    return {
+        type:"LOGIN_FULFILLED",
+        payload: {data:user}
+    }
+}
+
 export function logout(){
     return {
         type:"LOGOUT",

@@ -6,11 +6,14 @@ import CardActions from 'react-toolbox/lib/card/CardActions';
 import List from 'react-toolbox/lib/list/List';
 import ListItem from 'react-toolbox/lib/list/ListItem';
 import Button from 'react-toolbox/lib/button/Button';
+import Chip from 'react-toolbox/lib/chip/Chip';
+import Avatar from 'react-toolbox/lib/avatar/Avatar';
 import {vote} from '../serverAPI/serverAPI';
-import histoy from '../history';
-
+import { validatePledge} from "../actions/pledgeAction";
+import hacks from '../icons/Hacks';
 
 class SummeryCard extends Component {
+
     render() {
         console.log(this.props);
         return (
@@ -25,7 +28,10 @@ class SummeryCard extends Component {
                     </CardTitle>
                     <CardText>{this.props.value}</CardText>
                     <CardTitle title="pledged senators"/>
-                    <CardText>{this.props.voted.map((vote,index)=>{return <p key={index}>{vote}</p>})}</CardText>
+                    <CardText>{this.props.voted.map((vote,index)=>{return<Chip key={index}>
+                        <Avatar><img src={hacks[vote]}/></Avatar>
+                        <span>{vote}</span>
+                    </Chip>})}</CardText>
                     <CardActions>
                         <Button icon={'person_add'} onClick={this.doVote.bind(this)}/>
                     </CardActions>
@@ -39,18 +45,41 @@ class SummeryCard extends Component {
         const voted = [...this.props.voted];
         const user = this.props.user;
 
-        if (voted.indexOf(user) !== -1) {
-            alert('can\'t vote twice');
-            return;
-        }
+        const pledged = validatePledge(user).then((pledged) => {
 
-        voted.push(user);
+            console.log('pledged', pledged);
 
-        vote(title,voted).then(()=>{
+            if(!pledged){
+                alert('only pledged members can vote!');
+                return;
+            }
 
-        }).catch((err)=>{
-            console.error("aaaaaa",err);
-        });
+            console.log(this.props);
+
+            /*if(user === "please login") {
+                alert('please login');
+                return;
+            }*/
+
+            if (voted.indexOf(user) !== -1) {
+                alert('can\'t vote twice');
+                return;
+            }
+
+            voted.push(user);
+
+            vote(title,voted).then(()=>{
+                window.location.reload();
+            }).catch((err)=>{
+                console.error("aaaaaa",err);
+            });
+        }).catch(
+            (error) => {
+                console.error(error)
+            }
+        );
+
+
     }
 }
 

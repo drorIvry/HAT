@@ -17,7 +17,7 @@ class TripSummery extends Component {
             {
               (this.props.summery.motions).map((card, index) => {
                     console.log(card)
-                    return (<SummeryCard avatar={card.avatar} title={card.title} subtitle={card.subtitle} value={card.value} voted={card.voted} key={index} user={this.props.login.user}/>);
+                    return (<SummeryCard className={"summery"} avatar={card.avatar} title={card.title} subtitle={card.subtitle} value={card.value} voted={card.voted} key={index} user={this.props.login.user}/>);
                 })
             }
         </div>;
