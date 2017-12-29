@@ -1,7 +1,7 @@
 
 .bucketForm {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 1%;
     background-color: white;
     float: right;
     position: relative;
@@ -11,8 +11,8 @@
 }
 
 .bucketContainer {
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-bottom: 15px;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 1%;
     overflow-y: hidden;
 }

@@ -50,7 +50,7 @@ class AddStuff extends Component {
                     <Input label={'Links'} name={'links'} value={this.state.links} multiline  onChange={this.handleChange.bind(this, 'links')}/>
                     <Input label={'Description'} name={'description'} value={this.state.description} multiline  onChange={this.handleChange.bind(this, 'description')}/>
 
-                    <Button label={'Add'} onClick={this.add.bind(this)}/>
+                    <Button label={'Add'} primary raised icon={'add'} onClick={this.add.bind(this)}/>
                 </div>
 
                 <Snackbar

@@ -31,7 +31,7 @@ class MotionInput extends Component {
                     <Input label={'Description'} name={'subtitle'} value={this.state.subtitle} onChange={this.handleChange.bind(this, 'subtitle')}/>
                     <Input label={'Values'} name={'value'} value={this.state.value} required={this.state.required}  onChange={this.handleChange.bind(this, 'value')}/>
                     <Input label={'Avatar'} name={'avatar'} value={this.state.avatar} onChange={this.handleChange.bind(this, 'avatar')}/>
-                    <Button label={'Add'} onClick={this.add.bind(this)}/>
+                    <Button label={'Add'} primary raised icon='add' onClick={this.add.bind(this)}/>
 
                 </div>
 

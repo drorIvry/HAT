@@ -1,18 +1,18 @@
 
 .loginForm {
     text-align: center;
-    margin-top: 200px;
+    margin-top: 10%;
     background-color: white;
     float: right;
     right: 40%;
     position: relative;
-    width:300px;
+    width:20%;
     box-shadow: 5px 5px 5px grey;
 
 }
 
 .loginContainer {
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-bottom: 15px;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-bottom: 4%;
 }
