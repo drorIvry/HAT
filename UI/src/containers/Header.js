@@ -10,6 +10,7 @@ import Snackbar from 'react-toolbox/lib/snackbar/Snackbar';
 import {connect} from 'react-redux';
 import history from '../history';
 import DrawerContent from '../components/DrawerContent';
+import {toggleSnack} from "../actions/appActions";
 
 class Header extends React.Component {
     constructor() {
@@ -42,8 +43,9 @@ class Header extends React.Component {
 
                 <Snackbar
                     action='Dismiss'
-                    active={this.state.snackBarActive}
-                    label='Please Login'
+                    onClick={this.props.toggleSnack}
+                    active={this.props.app.snackOpened}
+                    label={this.props.app.snackMessage}
                     timeout={2000}
                     type='cancel'
                 />
@@ -68,7 +70,7 @@ class Header extends React.Component {
         if (this.props.login.logged)
             this.props.toggleDrawer();
         else
-            this.setState({snackBarActive:true});
+            this.props.toggleSnack('please login')
     };
 };
 
@@ -77,6 +79,7 @@ const mapStateToProps = (state) => {
         login: state.login,
         logout: state.logout,
         bucket: state.bucket,
+        app: state.app,
     };
 };
 
@@ -87,6 +90,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         toggleDrawer: (state) => {
             dispatch(toggleDrawer(state));
+        },
+        toggleSnack: (message) => {
+            dispatch(toggleSnack((message)));
         }
     };
 };
