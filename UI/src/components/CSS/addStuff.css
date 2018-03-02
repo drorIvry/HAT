@@ -1,16 +1,17 @@
 .addForm {
     text-align: center;
     background-color: white;
-    float: right;
-    right: 28%;
-    position: relative;
-    width:40%;
     padding: 3%;
     box-shadow: 5px 5px 5px grey;
     margin-bottom: 4%;
+    min-width: 300px;
+    grid-column-start: 2;
+    margin-top: 5%;
 }
 
 .addContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     margin-left: 2%;
     margin-right: 2%;
     margin-bottom: 2%;

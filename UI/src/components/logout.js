@@ -8,8 +8,8 @@ import './CSS/logout.css';
 class Logout extends Component {
     render() {
         return (
-            <div className='logoutForm'>
-                <div className='logoutContainer'>
+            <div className='logoutContainer'>
+                <div className='logoutForm'>
                     <p>are you sure you want to logout?</p>
                     <Button label={'Yes'} icon={'check'} onClick={() => {
                         this.props.doLogout();

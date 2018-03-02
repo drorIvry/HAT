@@ -1,18 +1,18 @@
 .motionForm {
     text-align: center;
-    margin-top: 1%;
     background-color: white;
-    float: right;
-    right: 30%;
-    position: relative;
-    width:40%;
-    padding: 1%;
+    padding: 3%;
     box-shadow: 5px 5px 5px grey;
-    margin-bottom: 2%;
+    margin-bottom: 4%;
+    min-width: 300px;
+    grid-column-start: 2;
+    margin-top: 5%;
 }
 
 .motionContainer {
-    margin-left: 1%;
-    margin-right: 1%;
-    margin-bottom: 1%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
 }

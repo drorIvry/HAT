@@ -1,17 +1,16 @@
 
 .loginForm {
     text-align: center;
-    margin-top: 10%;
     background-color: white;
-    float: right;
-    right: 40%;
-    position: relative;
-    width:20%;
     box-shadow: 5px 5px 5px grey;
-
+    grid-column-start: 2;
+    margin-top:10%;
+    min-width: 300px;
 }
 
 .loginContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     margin-left: 4%;
     margin-right: 4%;
     margin-bottom: 4%;

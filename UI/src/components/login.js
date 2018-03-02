@@ -26,9 +26,10 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className='loginForm'>
-                <div className='loginContainer'>
-                    <Input type='text' label={'User Name:'} value={this.state.username} onChange={this.handleChange.bind(this, 'username')}
+            <div className='loginContainer'>
+                <div className='loginForm'>
+                    <Input type='text' label={'User Name:'} value={this.state.username}
+                           onChange={this.handleChange.bind(this, 'username')}
                            error={this.props.login.error}/>
                     <Input type='password' label={'Password:'} value={this.state.password}
                            onChange={this.handleChange.bind(this, 'password')} error={this.props.login.error}/>
@@ -40,11 +41,11 @@ class Login extends React.Component {
     loginPressed() {
         this.props.doLogin(this.state.username, this.state.password);
 
-        setTimeout(() =>{
-            if(this.props.login.logged)
+        setTimeout(() => {
+            if (this.props.login.logged)
                 localStorage.setItem('login', this.props.login.user);
-                history.push('/dashboard');
-        },500);
+            history.push('/dashboard');
+        }, 500);
     }
 
     handleChange = (name, value) => {
