@@ -3,7 +3,7 @@ import serverProps from '../serverProps/ServerProps';
 
 export function serverLogin(user, password) {
     return new Promise((resolve, reject) => {
-        axios.get(serverProps.server + serverProps.loginAPI, {
+        axios.get(serverProps.loginAPI, {
             params: {
                 username: user,
                 password
@@ -19,7 +19,7 @@ export function serverLogin(user, password) {
 
 export function serverPledge(user) {
     return new Promise((resolve, reject) => {
-        axios.get(serverProps.server + serverProps.pledgeAPI, {
+        axios.get(serverProps.pledgeAPI, {
             params: {
                 username: user,
             },
@@ -34,7 +34,7 @@ export function serverPledge(user) {
 
 export function pourBucket() {
     return new Promise((resolve, reject) => {
-        axios.get(serverProps.server + serverProps.bucketAPI, {
+        axios.get(serverProps.bucketAPI, {
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }
@@ -46,7 +46,7 @@ export function pourBucket() {
 
 export function addToBucket(activity) {
     return new Promise((resolve, reject) => {
-        axios.post(serverProps.server + serverProps.bucketAPI, activity , {
+        axios.post(serverProps.bucketAPI, activity , {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             }
@@ -58,7 +58,7 @@ export function addToBucket(activity) {
 
 export function filterBucket(filter) {
     return new Promise((resolve, reject) => {
-        axios.post(serverProps.server + serverProps.filterBucketAPI ,{filters:filter})
+        axios.post(serverProps.filterBucketAPI ,{filters:filter})
             .then(resolve)
             .catch(reject);
     });
@@ -66,7 +66,7 @@ export function filterBucket(filter) {
 
 export function getAllmotions() {
     return new Promise((resolve, reject) => {
-        axios.get(serverProps.server + serverProps.motionsAPI, {
+        axios.get(serverProps.motionsAPI, {
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }
@@ -78,7 +78,7 @@ export function getAllmotions() {
 
 export function addMotionToVote(motion) {
     return new Promise((resolve, reject) => {
-        axios.post(serverProps.server + serverProps.motionsAPI, motion , {
+        axios.post(serverProps.motionsAPI, motion , {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             }
@@ -90,7 +90,7 @@ export function addMotionToVote(motion) {
 
 export function vote(title, voted) {
     return new Promise((resolve, reject) => {
-        axios.post(serverProps.server + serverProps.voteAPI, {
+        axios.post(serverProps.voteAPI, {
         title:title, voted:voted
     } , {
         headers: {
@@ -104,7 +104,7 @@ export function vote(title, voted) {
 
 export function getUsers() {
     return new Promise((resolve, reject) => {
-        axios.get(serverProps.server + serverProps.getUsers, {
+        axios.get(serverProps.getUsers, {
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }
