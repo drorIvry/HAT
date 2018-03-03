@@ -14,6 +14,14 @@ class DrawerContent extends Component {
     render() {
         return (
             <div className={'drawerContentWrapper'}>
+
+                <MenuItem value='dashboard'
+                          icon={'home'} caption='Dashboard' onClick={() => {
+                    this.props.toggleDrawer();
+                    history.push('/dashboard')
+                }}/>
+                <MenuDivider/>
+
                 <MenuItem value='general'
                           icon={<img src={icons.general} height={23}
                                      width={23}/>} caption='General Bucket' onClick={this.navigateAndClear.bind(this)}/>
@@ -43,12 +51,12 @@ class DrawerContent extends Component {
                     history.push('/add')
                 }}/>
 
-                <MenuItem value='status' caption={'Hack\'s statuses'}  onClick={() => {
+                <MenuItem value='status' caption={'Hack\'s statuses'} onClick={() => {
                     this.props.toggleDrawer();
                     history.push('/status')
                 }}/>
 
-                <MenuItem value='motion' caption='Suggest a motion'  onClick={this.validateAndNavigate.bind(this)}/>
+                <MenuItem value='motion' caption='Suggest a motion' onClick={this.validateAndNavigate.bind(this)}/>
             </div>
         );
     }
@@ -57,7 +65,7 @@ class DrawerContent extends Component {
 
         validatePledge(this.props.login.user).then((pledged) => {
 
-            if(pledged) {
+            if (pledged) {
                 this.props.toggleDrawer();
                 history.push('/motion');
             }

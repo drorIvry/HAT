@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-
+import './CSS/NotFound.css'
 class NotFound extends Component {
     render() {
         return (
-            <div><p>404</p></div>
+            <div className={'notFoundWrapper'}>
+                <h1>404</h1>
+                <p>Page Not Found</p>
+            </div>
         );
     }
 }
-
-NotFound.propTypes = {};
-NotFound.defaultProps = {};
 
 export default NotFound;
